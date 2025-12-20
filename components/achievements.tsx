@@ -1,28 +1,6 @@
 "use client"
 import { useEffect, useRef, useState } from "react"
-import { Trophy,Star} from "lucide-react"
-
-const achievements = [
-  {
-    icon: Trophy,
-    title: "Datathon Hackathon Winner (Case-study)",
-    description: "Winner of national-level case study competition among 20+ participating teams",
-    year: "2025",
-  },
-  {
-    icon: Trophy,
-    title: "Gajshield KJSSE Hack8 Hackthon",
-    description:
-      "Selected as top 5 finalist team in college hackathon competition for cybersecurity project",
-    year: "2025",
-  },
-  {
-    icon: Star,
-    title:"Mckinsey Forward 25",
-    description: "Completed McKinsey.org Forward — a 10-week global online program focused on developing practical workplace and problem-solving skills.",
-    year:"2025"
-  },
-]
+import { achievements } from "@/data"
 
 export function Achievements() {
   const [isVisible, setIsVisible] = useState(false)
@@ -53,9 +31,8 @@ export function Achievements() {
     <section
       id="achievements"
       ref={ref}
-      className={`min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 transition-opacity duration-1000 ${
-        isVisible ? "opacity-100" : "opacity-0"
-      }`}
+      className={`min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 transition-opacity duration-1000 ${isVisible ? "opacity-100" : "opacity-0"
+        }`}
     >
       <div className="max-w-4xl w-full mx-auto">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12">Achievements</h2>

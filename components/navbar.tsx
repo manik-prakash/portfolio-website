@@ -1,14 +1,7 @@
 "use client"
 import { useEffect, useState } from "react"
 import { Menu, X } from "lucide-react"
-
-const navItems = [
-  { label: "home", href: "#hero" },
-  { label: "education", href: "#education" },
-  { label: "experience", href: "#experience" },
-  { label: "projects", href: "#projects" },
-  { label: "achievements", href: "#achievements" },
-]
+import { navItems } from "@/data"
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -63,8 +56,8 @@ export function Navbar() {
                   key={item.href}
                   onClick={() => handleNavClick(item.href)}
                   className={`px-4 py-2 rounded-full text-sm transition-all duration-200 ${activeSection === item.href.substring(1)
-                      ? "bg-accent/20 text-accent"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                    ? "bg-accent/20 text-accent"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                     }`}
                 >
                   {item.label}
@@ -93,8 +86,8 @@ export function Navbar() {
                 key={item.href}
                 onClick={() => handleNavClick(item.href)}
                 className={`text-2xl transition-colors duration-200 ${activeSection === item.href.substring(1)
-                    ? "text-accent"
-                    : "text-muted-foreground hover:text-foreground"
+                  ? "text-accent"
+                  : "text-muted-foreground hover:text-foreground"
                   }`}
               >
                 {item.label}

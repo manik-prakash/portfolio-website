@@ -1,21 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-
-const education = [
-  {
-    institution: "K. J. Somaiya School of Engineering, Mumbai",
-    degree: "B.Tech in Computer Engineering",
-    period: "2023 - 2027",
-    description: "Relevant coursework: Data Structures, Algorithms, Database Management, Operating Systems, Computer Networks, Machine Learning. Active member of technical councils and hackathon participant.",
-  },
-  {
-    institution: "D.A.V Public School, Ranchi",
-    degree: "HSC (Science Stream)",
-    period: "2021 - 2023",
-    description: "Completed higher secondary education with Physics, Chemistry, and Mathematics. Scored 91% in 12th board examinations and 94% in 10th board examinations.",
-  },
-]
+import { education } from "@/data"
 
 export function Education() {
   const [isVisible, setIsVisible] = useState(false)

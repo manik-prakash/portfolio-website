@@ -1,4 +1,5 @@
 import { Github, Linkedin, Mail, Twitter } from "lucide-react"
+import { personalInfo, socialLinks } from "@/data"
 
 export function Hero() {
 
@@ -7,44 +8,35 @@ export function Hero() {
       <div className="max-w-4xl w-full mx-auto">
         <div className="animate-fade-in-up">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 text-balance">
-            hi, i am <span className="text-accent">Manik Prakash</span>
+            hi, i am <span className="text-accent">{personalInfo.name}</span>
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8">
-            from Mumbai , IN 
+            from {personalInfo.location}
           </p>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mb-12 leading-relaxed">
-            software engineer building things that matter. i turn ideas into elegant, functional code.
+            {personalInfo.tagline}
           </p>
 
           <div className="flex gap-4 items-center">
-            <a
-              href="https://github.com/manik-prakash"
-              className="text-muted-foreground hover:text-foreground transition-colors duration-200"
-              aria-label="GitHub"
-            >
-              <Github className="w-6 h-6" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/manik-prakash/"
-              className="text-muted-foreground hover:text-foreground transition-colors duration-200"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="w-6 h-6" />
-            </a>
-            <a
-              href="https://x.com/manikprakash74"
-              className="text-muted-foreground hover:text-foreground transition-colors duration-200"
-              aria-label="Twitter"
-            >
-              <Twitter className="w-6 h-6" />
-            </a>
-            <a
-              href="mailto:manikprakash74@gmail.com"
-              className="text-muted-foreground hover:text-foreground transition-colors duration-200"
-              aria-label="Email"
-            >
-              <Mail className="w-6 h-6" />
-            </a>
+            {socialLinks.map((link) => {
+              const iconMap: { [key: string]: React.ComponentType<{ className?: string }> } = {
+                github: Github,
+                linkedin: Linkedin,
+                twitter: Twitter,
+                email: Mail,
+              }
+              const Icon = iconMap[link.name]
+              return (
+                <a
+                  key={link.name}
+                  href={link.url}
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+                  aria-label={link.ariaLabel}
+                >
+                  <Icon className="w-6 h-6" />
+                </a>
+              )
+            })}
           </div>
         </div>
       </div>
