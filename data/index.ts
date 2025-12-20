@@ -41,7 +41,7 @@ export interface SocialLink {
 export const personalInfo = {
     name: "Manik Prakash",
     location: "Mumbai, IN",
-    tagline: "engineering student who is breaking first and building things in the field of backend and Cloud devOps :)",
+    tagline: "Engineering student who learns backend and cloud DevOps by breaking things and building them better :)",
 }
 
 
