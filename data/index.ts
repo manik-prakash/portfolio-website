@@ -38,15 +38,10 @@ export interface SocialLink {
     ariaLabel: string
 }
 
-export interface NavItem {
-    label: string
-    href: string
-}
-
 export const personalInfo = {
     name: "Manik Prakash",
     location: "Mumbai, IN",
-    tagline: "software engineer building things that matter. i turn ideas into elegant, functional code.",
+    tagline: "engineering student who is breaking first and building things in the field of backend and Cloud devOps :)",
 }
 
 
@@ -57,20 +52,12 @@ export const socialLinks: SocialLink[] = [
     { name: "email", url: "mailto:manikprakash74@gmail.com", ariaLabel: "Email" },
 ]
 
-export const navItems: NavItem[] = [
-    { label: "home", href: "#hero" },
-    { label: "education", href: "#education" },
-    { label: "experience", href: "#experience" },
-    { label: "projects", href: "#projects" },
-    { label: "achievements", href: "#achievements" },
-]
-
 export const education: Education[] = [
     {
         institution: "K. J. Somaiya School of Engineering, Mumbai",
-        degree: "B.Tech in Computer Engineering",
+        degree: "B.Tech in Computer Engineering (Honours in CyberSecurity)",
         period: "2023 - 2027",
-        description: "Relevant coursework: Data Structures, Algorithms, Database Management, Operating Systems, Computer Networks, Machine Learning. Active member of technical councils and hackathon participant.",
+        description: "Relevant coursework: Data Structures, Algorithms, Database Management, Operating Systems, Computer Networks, Machine Learning. Active member of technical council(SMLRA) and hackathon participant.",
     },
     {
         institution: "D.A.V. Public School, Ranchi",

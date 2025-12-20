@@ -1,40 +1,9 @@
-"use client"
-
-import { useEffect, useRef, useState } from "react"
+import { AnimatedSection } from "./animated-section"
 import { experiences } from "@/data"
 
 export function Experience() {
-  const [isVisible, setIsVisible] = useState(false)
-  const ref = useRef<HTMLElement>(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-        }
-      },
-      { threshold: 0.1 },
-    )
-
-    if (ref.current) {
-      observer.observe(ref.current)
-    }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current)
-      }
-    }
-  }, [])
-
   return (
-    <section
-      id="experience"
-      ref={ref}
-      className={`min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 transition-opacity duration-1000 ${isVisible ? "opacity-100" : "opacity-0"
-        }`}
-    >
+    <AnimatedSection id="experience">
       <div className="max-w-4xl w-full mx-auto">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12">Experience</h2>
         <div className="space-y-12">
@@ -54,6 +23,6 @@ export function Experience() {
           ))}
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   )
 }

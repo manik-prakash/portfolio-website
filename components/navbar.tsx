@@ -1,7 +1,14 @@
 "use client"
 import { useEffect, useState } from "react"
 import { Menu, X } from "lucide-react"
-import { navItems } from "@/data"
+
+export const navItems  = [
+    { label: "home", href: "#hero" },
+    { label: "education", href: "#education" },
+    { label: "experience", href: "#experience" },
+    { label: "projects", href: "#projects" },
+    { label: "achievements", href: "#achievements" },
+]
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -11,8 +18,6 @@ export function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
-
-      // Determine active section
       const sections = navItems.map((item) => item.href.substring(1))
       for (const section of sections) {
         const element = document.getElementById(section)
@@ -49,7 +54,6 @@ export function Navbar() {
             }`}
         >
           <div className="flex items-center justify-between">
-            {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-1 mx-auto">
               {navItems.map((item) => (
                 <button
@@ -65,7 +69,6 @@ export function Navbar() {
               ))}
             </div>
 
-            {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden ml-auto text-foreground"
@@ -77,7 +80,6 @@ export function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden fixed inset-0 z-40 bg-background/95 backdrop-blur-md">
           <div className="flex flex-col items-center justify-center h-full gap-6">
