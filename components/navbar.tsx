@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react"
 
 const navItems = [
   { label: "home", href: "#hero" },
-  { label: "about", href: "#about" },
+  { label: "education", href: "#education" },
   { label: "experience", href: "#experience" },
   { label: "projects", href: "#projects" },
   { label: "achievements", href: "#achievements" },
@@ -48,14 +48,12 @@ export function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
-          isScrolled ? "w-[90%] max-w-2xl" : "w-[95%] max-w-3xl"
-        }`}
+        className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${isScrolled ? "w-[90%] max-w-2xl" : "w-[95%] max-w-3xl"
+          }`}
       >
         <div
-          className={`backdrop-blur-md bg-secondary/50 border border-border rounded-full px-6 py-3 transition-all duration-300 ${
-            isScrolled ? "shadow-lg" : ""
-          }`}
+          className={`backdrop-blur-md bg-secondary/50 border border-border rounded-full px-6 py-3 transition-all duration-300 ${isScrolled ? "shadow-lg" : ""
+            }`}
         >
           <div className="flex items-center justify-between">
             {/* Desktop Navigation */}
@@ -64,11 +62,10 @@ export function Navbar() {
                 <button
                   key={item.href}
                   onClick={() => handleNavClick(item.href)}
-                  className={`px-4 py-2 rounded-full text-sm transition-all duration-200 ${
-                    activeSection === item.href.substring(1)
+                  className={`px-4 py-2 rounded-full text-sm transition-all duration-200 ${activeSection === item.href.substring(1)
                       ? "bg-accent/20 text-accent"
                       : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
-                  }`}
+                    }`}
                 >
                   {item.label}
                 </button>
@@ -95,11 +92,10 @@ export function Navbar() {
               <button
                 key={item.href}
                 onClick={() => handleNavClick(item.href)}
-                className={`text-2xl transition-colors duration-200 ${
-                  activeSection === item.href.substring(1)
+                className={`text-2xl transition-colors duration-200 ${activeSection === item.href.substring(1)
                     ? "text-accent"
                     : "text-muted-foreground hover:text-foreground"
-                }`}
+                  }`}
               >
                 {item.label}
               </button>
