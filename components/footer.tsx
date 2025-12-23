@@ -6,7 +6,7 @@ export function Footer() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center space-y-6">
           <h3 className="text-xl sm:text-2xl font-semibold">say hello</h3>
-          <p className="text-muted-foreground">just send me the joining letter </p>
+          <p className="text-muted-foreground">Just an intensive learner here.</p>
 
           <div className="flex gap-6 items-center justify-center">
             <a
