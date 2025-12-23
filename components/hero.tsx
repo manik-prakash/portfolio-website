@@ -1,7 +1,8 @@
-import { Github, Linkedin, Mail, Twitter } from "lucide-react"
+import { Github, Linkedin, Mail, Twitter, FileText } from "lucide-react"
 import { personalInfo, socialLinks } from "@/data"
 
 export function Hero() {
+  const resumeLink = "https://drive.google.com/file/d/1kme59R4cig7EPyTtn6dYYLW1yi8V170V/view"
 
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20">
@@ -17,7 +18,7 @@ export function Hero() {
             {personalInfo.tagline}
           </p>
 
-          <div className="flex gap-4 items-center">
+          <div className="flex gap-4 items-center flex-wrap">
             {socialLinks.map((link) => {
               const iconMap: { [key: string]: React.ComponentType<{ className?: string }> } = {
                 github: Github,
@@ -37,6 +38,16 @@ export function Hero() {
                 </a>
               )
             })}
+            <a
+              href={resumeLink}
+              className="resume-btn-3d ml-2"
+              aria-label="View Resume"
+            >
+              <span>resume</span>
+              <span>resume</span>
+              <span>resume</span>
+              <span>resume</span>
+            </a>
           </div>
         </div>
       </div>

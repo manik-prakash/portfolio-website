@@ -119,17 +119,16 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
 }
 
-/* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar for webkit browsers */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -145,4 +144,70 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: oklch(0.3 0.01 265);
+}
+
+/* 3D Resume Button */
+.resume-btn-3d {
+  position: relative;
+  width: 120px;
+  height: 40px;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  transform: perspective(1000px) rotateX(0deg);
+}
+
+.resume-btn-3d:hover {
+  transform: perspective(1000px) rotateX(360deg);
+}
+
+.resume-btn-3d span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: inherit;
+  text-transform: lowercase;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: 0.5s;
+  box-sizing: border-box;
+  backface-visibility: hidden;
+}
+
+.resume-btn-3d span:nth-child(1) {
+  transform: rotateX(0deg) translateZ(20px);
+  color: var(--accent);
+  background: rgba(101, 163, 213, 0.15);
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+}
+
+.resume-btn-3d span:nth-child(2) {
+  transform: rotateX(90deg) translateZ(20px);
+  color: var(--accent);
+  background: rgba(101, 163, 213, 0.15);
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+}
+
+.resume-btn-3d span:nth-child(3) {
+  transform: rotateX(180deg) translateZ(20px);
+  color: var(--accent);
+  background: rgba(101, 163, 213, 0.15);
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+}
+
+.resume-btn-3d span:nth-child(4) {
+  transform: rotateX(270deg) translateZ(20px);
+  color: var(--accent);
+  background: rgba(101, 163, 213, 0.15);
+  border: 1px solid var(--accent);
+  border-radius: 4px;
 }
