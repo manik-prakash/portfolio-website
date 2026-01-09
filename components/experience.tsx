@@ -12,9 +12,9 @@ export function Experience() {
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
                 <div>
                   <h3 className="text-xl sm:text-2xl font-semibold text-foreground group-hover:text-accent transition-colors duration-200">
-                    {exp.company}
+                    {exp.role}
                   </h3>
-                  <p className="text-sm sm:text-base text-muted-foreground">{exp.role}</p>
+                  <p className="text-sm sm:text-base text-muted-foreground">{exp.company}</p>
                 </div>
                 <span className="text-sm sm:text-base text-muted-foreground whitespace-nowrap">{exp.period}</span>
               </div>

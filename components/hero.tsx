@@ -9,13 +9,13 @@ export function Hero() {
       <div className="max-w-4xl w-full mx-auto">
         <div className="animate-fade-in-up">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 text-balance">
-            hi, i am <span className="text-accent">{personalInfo.name}</span>
+            hi, i am <span className="text-accent">Manik Prakash</span>
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8">
-            from {personalInfo.location}
+            from Mumbai, India
           </p>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mb-12 leading-relaxed">
-            {personalInfo.tagline}
+            Computer Engineering student who learns <span className="text-accent">Full-Stack</span> and <span className="text-accent">cloud DevOps</span> by breaking things and building them better :)
           </p>
 
           <div className="flex gap-4 items-center flex-wrap">
