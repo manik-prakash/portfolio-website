@@ -9,7 +9,9 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^16.2.4",
     "@types/uuid": "^10.0.0",
+    "babel-plugin-react-compiler": "^1.0.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.38.0",
     "lucide-react": "^0.561.0",
