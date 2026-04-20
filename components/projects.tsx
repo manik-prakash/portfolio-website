@@ -15,7 +15,7 @@ export function Projects() {
     const bLive = b.demo && b.demo !== "#" ? 1 : 0
     return bLive - aLive
   })
-  const displayedProjects = showAll ? sortedProjects : sortedProjects.slice(0, 3)
+  const displayedProjects = showAll ? sortedProjects : sortedProjects.slice(0, 4)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
