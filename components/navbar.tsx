@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useState } from "react"
-import { Menu, X } from "lucide-react"
+import { Menu, Moon, Sun, X } from "lucide-react"
+import { useTheme } from "next-themes"
 
 export const navItems  = [
     { label: "home", href: "#hero" },
@@ -16,6 +17,9 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("hero")
+  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
 
   useEffect(() => {
     document.body.style.overflow = isMobileMenuOpen ? "hidden" : ""
@@ -60,7 +64,7 @@ export function Navbar() {
           className={`backdrop-blur-md bg-secondary/50 border border-border rounded-full px-6 py-3 transition-all duration-300 ${isScrolled ? "shadow-lg" : ""
             }`}
         >
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between gap-2">
             <div className="hidden md:flex items-center gap-0.5 mx-auto overflow-hidden">
               {navItems.map((item) => (
                 <button
@@ -76,9 +80,19 @@ export function Navbar() {
               ))}
             </div>
 
+            {mounted && (
+              <button
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="shrink-0 p-2 rounded-full text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all duration-200"
+                aria-label="Toggle theme"
+              >
+                {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+              </button>
+            )}
+
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden ml-auto text-foreground"
+              className="md:hidden text-foreground"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

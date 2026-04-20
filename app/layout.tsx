@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Fira_Code, Inter } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const firaCode = Fira_Code({
   variable: "--font-display",
@@ -42,7 +43,9 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${firaCode.variable} antialiased`}
       >
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
