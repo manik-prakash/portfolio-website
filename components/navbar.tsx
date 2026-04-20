@@ -53,7 +53,7 @@ export function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${isScrolled ? "w-[90%] max-w-2xl" : "w-[95%] max-w-3xl"
+        className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${isScrolled ? "w-[95%] max-w-3xl" : "w-[95%] max-w-3xl"
           }`}
       >
         <div
@@ -61,12 +61,12 @@ export function Navbar() {
             }`}
         >
           <div className="flex items-center justify-between">
-            <div className="hidden md:flex items-center gap-1 mx-auto">
+            <div className="hidden md:flex items-center gap-0.5 mx-auto overflow-hidden">
               {navItems.map((item) => (
                 <button
                   key={item.href}
                   onClick={() => handleNavClick(item.href)}
-                  className={`px-4 py-2 rounded-full text-sm transition-all duration-200 ${activeSection === item.href.substring(1)
+                  className={`px-2.5 py-2 rounded-full text-sm whitespace-nowrap transition-all duration-200 ${activeSection === item.href.substring(1)
                     ? "bg-accent/20 text-accent"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                     }`}

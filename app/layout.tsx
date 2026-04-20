@@ -1,8 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Fira_Code } from "next/font/google";
+import { Fira_Code, Inter } from "next/font/google";
 import "./globals.css";
 
 const firaCode = Fira_Code({
+  variable: "--font-display",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const inter = Inter({
   variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
@@ -34,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${firaCode.variable} antialiased`}
+        className={`${inter.variable} ${firaCode.variable} antialiased`}
       >
         {children}
       </body>

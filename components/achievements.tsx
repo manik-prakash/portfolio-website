@@ -1,10 +1,25 @@
-import { AnimatedSection } from "./animated-section"
+"use client"
+
+import { useEffect, useRef, useState } from "react"
 import { achievements } from "@/data"
+import { AnimatedSection } from "./animated-section"
 
 export function Achievements() {
+  const [isVisible, setIsVisible] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setIsVisible(true) },
+      { threshold: 0.1 }
+    )
+    if (ref.current) observer.observe(ref.current)
+    return () => { if (ref.current) observer.unobserve(ref.current) }
+  }, [])
+
   return (
     <AnimatedSection id="achievements">
-      <div className="max-w-4xl w-full mx-auto">
+      <div ref={ref} className="max-w-4xl w-full mx-auto">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12">Achievements</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {achievements.map((achievement, index) => {
@@ -12,7 +27,8 @@ export function Achievements() {
             return (
               <div
                 key={index}
-                className="group bg-secondary/20 hover:bg-secondary/40 border border-border rounded-lg p-6 transition-all duration-300 hover:border-accent/50"
+                style={{ transitionDelay: `${index * 80}ms` }}
+                className={`group bg-secondary/20 hover:bg-secondary/40 border border-border rounded-lg p-6 transition-all duration-300 hover:border-accent/50 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
               >
                 <div className="flex items-start gap-4 mb-3">
                   <div className="shrink-0 p-2 bg-accent/10 rounded-lg">

@@ -1,8 +1,34 @@
-import { Github, Linkedin, Mail, Twitter, FileText } from "lucide-react"
+"use client"
+
+import { useEffect, useState } from "react"
+import { Github, Linkedin, Mail, Twitter } from "lucide-react"
 import { socialLinks } from "@/data"
+
+const TYPED_WORDS = ["AI-powered products", "scalable APIs", "dev infrastructure", "full-stack apps"]
 
 export function Hero() {
   const resumeLink = "https://drive.google.com/file/d/1kme59R4cig7EPyTtn6dYYLW1yi8V170V/view"
+  const [wordIndex, setWordIndex] = useState(0)
+  const [displayed, setDisplayed] = useState("")
+  const [deleting, setDeleting] = useState(false)
+
+  useEffect(() => {
+    const word = TYPED_WORDS[wordIndex]
+    let timeout: ReturnType<typeof setTimeout>
+
+    if (!deleting && displayed.length < word.length) {
+      timeout = setTimeout(() => setDisplayed(word.slice(0, displayed.length + 1)), 60)
+    } else if (!deleting && displayed.length === word.length) {
+      timeout = setTimeout(() => setDeleting(true), 1800)
+    } else if (deleting && displayed.length > 0) {
+      timeout = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 35)
+    } else if (deleting && displayed.length === 0) {
+      setDeleting(false)
+      setWordIndex((i) => (i + 1) % TYPED_WORDS.length)
+    }
+
+    return () => clearTimeout(timeout)
+  }, [displayed, deleting, wordIndex])
 
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20">
@@ -15,7 +41,12 @@ export function Hero() {
             from Mumbai, India
           </p>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mb-12 leading-relaxed">
-            Full-stack engineer building <span className="text-accent">AI-powered products</span> and the <span className="text-accent">infrastructure</span> to run them. Currently shipping at Boomlex.
+            Full-stack engineer building{" "}
+            <span className="text-accent font-mono">
+              {displayed}
+              <span className="animate-pulse">|</span>
+            </span>
+            . Currently shipping at Boomlex.
           </p>
 
           <div className="flex gap-4 items-center flex-wrap">

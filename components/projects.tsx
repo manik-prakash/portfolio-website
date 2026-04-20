@@ -54,8 +54,7 @@ export function Projects() {
       <section
         id="projects"
         ref={ref}
-        className={`min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 transition-opacity duration-1000 ${isVisible ? "opacity-100" : "opacity-0"
-          }`}
+        className="border-t border-border/40 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-24 sm:py-32"
       >
         <div className="max-w-4xl w-full mx-auto">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12">projects</h2>
@@ -64,7 +63,8 @@ export function Projects() {
               <button
                 key={index}
                 onClick={() => setSelectedProject(project)}
-                className="group bg-secondary/20 hover:bg-secondary/40 border border-border rounded-lg p-6 transition-all duration-300 hover:border-accent/50 hover:scale-[1.02] hover:shadow-lg hover:shadow-accent/5 text-left w-full cursor-pointer"
+                style={{ transitionDelay: `${index * 80}ms` }}
+                className={`group bg-secondary/20 hover:bg-secondary/40 border border-border rounded-lg p-6 transition-all duration-300 hover:border-accent/50 hover:scale-[1.02] hover:shadow-lg hover:shadow-accent/5 text-left w-full cursor-pointer flex flex-col ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
               >
                 <div className="flex items-start justify-between mb-3">
                   <h3 className="text-lg sm:text-xl font-semibold text-foreground group-hover:text-accent transition-colors duration-200">
@@ -105,7 +105,7 @@ export function Projects() {
                     </span>
                   ))}
                 </div>
-                <div className="flex items-center gap-1 text-xs text-muted-foreground group-hover:text-accent transition-colors duration-200">
+                <div className="mt-auto flex items-center gap-1 text-xs text-muted-foreground group-hover:text-accent transition-colors duration-200">
                   <span>view details</span>
                   <ArrowUpRight className="w-3 h-3 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </div>
