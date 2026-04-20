@@ -7,7 +7,7 @@ export function Footer() {
         <div className="text-center space-y-6">
           <h3 className="text-xl sm:text-2xl font-semibold">say hello</h3>
           <p className="text-muted-foreground max-w-sm mx-auto">
-            Open to internships, collaborations, and interesting problems.{" "}
+            Building something interesting?{" "}
             <a href="mailto:manikprakash74@gmail.com" className="text-accent hover:underline">
               manikprakash74@gmail.com
             </a>

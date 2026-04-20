@@ -24,7 +24,8 @@ CLAUDE.md
 .DS_Store
 *.pem
 data.txt
-
+/.claude
+/.claude/
 # debug
 npm-debug.log*
 yarn-debug.log*

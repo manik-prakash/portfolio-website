@@ -15,7 +15,7 @@ export function Hero() {
             from Mumbai, India
           </p>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mb-12 leading-relaxed">
-            Computer Engineering student who learns <span className="text-accent">Full-Stack</span> and <span className="text-accent">cloud DevOps</span> by breaking things and building them better :)
+            Full-stack engineer building <span className="text-accent">AI-powered products</span> and the <span className="text-accent">infrastructure</span> to run them. Currently shipping at Boomlex.
           </p>
 
           <div className="flex gap-4 items-center flex-wrap">
