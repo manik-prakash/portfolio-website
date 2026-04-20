@@ -2,11 +2,16 @@ import { Github, Linkedin, Mail, Twitter } from "lucide-react"
 
 export function Footer() {
   return (
-    <footer className="border-t border-border">
+    <footer id="contact" className="border-t border-border">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center space-y-6">
           <h3 className="text-xl sm:text-2xl font-semibold">say hello</h3>
-          <p className="text-muted-foreground">Just an intensive learner here.</p>
+          <p className="text-muted-foreground max-w-sm mx-auto">
+            Open to internships, collaborations, and interesting problems.{" "}
+            <a href="mailto:manikprakash74@gmail.com" className="text-accent hover:underline">
+              manikprakash74@gmail.com
+            </a>
+          </p>
 
           <div className="flex gap-6 items-center justify-center">
             <a

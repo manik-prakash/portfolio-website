@@ -35,7 +35,6 @@ export function GithubGraph() {
             blockSize={10}
             blockMargin={3}
             fontSize={10}
-            hideTotalCount
           />
         </div>
       </div>

@@ -1,4 +1,5 @@
 "use client"
+import { useEffect, useState } from "react"
 import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
 import { Education } from "@/components/education"
@@ -10,9 +11,16 @@ import { GithubGraph } from "@/components/github-graph"
 import Snowfall from 'react-snowfall'
 
 export default function Portfolio() {
+  const [snowflakeCount, setSnowflakeCount] = useState(40)
+
+  useEffect(() => {
+    setSnowflakeCount(window.innerWidth < 640 ? 15 : 40)
+  }, [])
+
   return (
     <main className="min-h-screen">
       <Snowfall
+        snowflakeCount={snowflakeCount}
         style={{
           position: 'fixed',
           top: 0,

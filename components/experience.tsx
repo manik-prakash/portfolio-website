@@ -32,8 +32,8 @@ export function Experience() {
                 >
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1">
-                      <h3 className="text-xl sm:text-2xl font-semibold text-foreground">
-                        {exp.role}
+                      <h3 className="text-xl sm:text-2xl font-semibold text-accent">
+                        {exp.company}
                       </h3>
                       {isCurrent && (
                         <span className="text-xs px-2 py-0.5 rounded-full border border-accent/40 text-accent bg-accent/10">
@@ -41,7 +41,7 @@ export function Experience() {
                         </span>
                       )}
                     </div>
-                    <p className="text-sm sm:text-base text-muted-foreground">{exp.company}</p>
+                    <p className="text-sm sm:text-base text-muted-foreground">{exp.role}</p>
                   </div>
                   <div className="flex items-center gap-3 sm:flex-col sm:items-end">
                     <span className="text-sm text-muted-foreground whitespace-nowrap">{exp.period}</span>

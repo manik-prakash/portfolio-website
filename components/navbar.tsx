@@ -9,6 +9,7 @@ export const navItems  = [
     { label: "projects", href: "#projects" },
     { label: "achievements", href: "#achievements" },
     { label: "activity", href: "#github" },
+    { label: "contact", href: "#contact" },
 ]
 
 export function Navbar() {

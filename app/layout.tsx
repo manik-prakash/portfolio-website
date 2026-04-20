@@ -23,6 +23,7 @@ export const metadata: Metadata = {
   keywords: ["Manik Prakash", "Software Engineer", "Full Stack Developer", "React", "Node.js", "TypeScript", "Portfolio"],
   authors: [{ name: "Manik Prakash" }],
   creator: "Manik Prakash",
+  metadataBase: new URL("https://manik-prakash.tech"),
 };
 
 export default function RootLayout({

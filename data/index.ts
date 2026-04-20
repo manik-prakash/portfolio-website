@@ -63,7 +63,7 @@ export const education: Education[] = [
 export const experiences: Experience[] = [
     {
         company: "Boomlex Technologies Private Limited",
-        role: "Full Stack Engineer | Inten",
+        role: "Full Stack Engineer | Intern",
         period: "Feb 2026 - Present",
         description: "Building and shipping production features for a live SaaS product using React, Node.js, and TypeScript — handling everything from API design to frontend state management. Owning end-to-end feature development in a fast-paced startup environment, collaborating directly with the engineering team and product stakeholders. Applying secure coding practices to protect user data and API endpoints, informed by my CyberSecurity Honours coursework.",
     },
@@ -74,7 +74,7 @@ export const experiences: Experience[] = [
         description: "Led full development and deployment of the council website, managing technical infrastructure and cloud hosting. Built React.js forms with Firebase Authentication for streamlined student registration and secure data handling. Implemented a database management system for 200+ student records across events and activities. Delivered a technical blockchain session as part of 'The TFM 2.0' workshop covering AI, blockchain, and quantitative finance.",
     },
     {
-        company: "Crowdsource by Google india",
+        company: "Crowdsource by Google India",
         role: "Crowdsource Learning Community Influencer",
         period: "August 2025 - October 2025",
         description: "Conducted student-led Google Crowdsource seminars to help students understand the importance of crowdsourcing in the inclusive training of AI models.Educated participants on the need for diverse and representative data in machine learning datasets to improve fairness and Bias.Contributed 50+ meaningful submissions to the Crowdsource program in the STEM domain, aiding in the development of more homogeneous and diverse training data for Google's upcoming AI models.Engaged with a passionate community of learners, encouraging collaboration and awareness around real-world data annotation challenges.",
