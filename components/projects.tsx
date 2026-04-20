@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { ArrowUpRight, ExternalLink, Github, X } from "lucide-react"
+import { ArrowUpRight, ExternalLink, Github, X, ArrowRight } from "lucide-react"
 import { projects as allProjects } from "@/data"
 
 export function Projects() {
@@ -113,16 +113,26 @@ export function Projects() {
             ))}
           </div>
 
-          {!showAll && (
-            <div className="flex justify-center mt-8">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+            {!showAll && (
               <button
                 onClick={() => setShowAll(true)}
                 className="px-6 py-3 bg-accent/10 hover:bg-accent/20 border border-accent/50 rounded-full text-accent transition-all duration-200 hover:scale-105"
               >
                 show all projects ({allProjects.length})
               </button>
-            </div>
-          )}
+            )}
+            <a
+              href="https://github.com/manik-prakash"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-6 py-3 border border-border hover:border-accent/50 rounded-full text-muted-foreground hover:text-accent transition-all duration-200 hover:scale-105"
+            >
+              <Github className="w-4 h-4" />
+              <span>more on github</span>
+              <ArrowRight className="w-3 h-3" />
+            </a>
+          </div>
         </div>
       </section>
 
