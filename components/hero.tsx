@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react"
 import { Github, Linkedin, Mail, Twitter } from "lucide-react"
 import { socialLinks } from "@/data"
+import { PixelTrail } from "@/components/ui/pixel-trail"
+import { useScreenSize } from "@/hooks/use-screen-size"
 
 const TYPED_WORDS = ["AI-powered products", "scalable APIs", "dev infrastructure", "full-stack apps"]
 
@@ -11,6 +13,7 @@ export function Hero() {
   const [wordIndex, setWordIndex] = useState(0)
   const [displayed, setDisplayed] = useState("")
   const [deleting, setDeleting] = useState(false)
+  const screenSize = useScreenSize()
 
   useEffect(() => {
     const word = TYPED_WORDS[wordIndex]
@@ -31,8 +34,17 @@ export function Hero() {
   }, [displayed, deleting, wordIndex])
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20">
-      <div className="max-w-4xl w-full mx-auto">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 overflow-hidden">
+      <div className="absolute inset-0 z-20">
+        <PixelTrail
+          pixelSize={screenSize.lessThan("md") ? 20 : 28}
+          fadeDuration={800}
+          delay={0}
+          pixelClassName="bg-accent/70"
+        />
+      </div>
+
+      <div className="relative z-10 max-w-4xl w-full mx-auto">
         <div className="animate-fade-in-up">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 text-balance">
             hi, i am <span className="text-accent">Manik Prakash</span>
