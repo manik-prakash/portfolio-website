@@ -11,7 +11,7 @@ export interface Experience {
     company: string
     role: string
     period: string
-    description: string
+    description: string[]
 }
 
 export interface Project {
@@ -65,31 +65,55 @@ export const experiences: Experience[] = [
         company: "Boomlex Technologies Private Limited",
         role: "Full Stack Engineer | Intern",
         period: "Feb 2026 - Present",
-        description: "Building and shipping production features for a live SaaS product using React, Node.js, and TypeScript — handling everything from API design to frontend state management. Owning end-to-end feature development in a fast-paced startup environment, collaborating directly with the engineering team and product stakeholders. Applying secure coding practices to protect user data and API endpoints, informed by my CyberSecurity Honours coursework.",
+        description: [
+            "Building and shipping production features for a live SaaS product using React, Node.js, and TypeScript — handling everything from API design to frontend state management.",
+            "Owning end-to-end feature development in a fast-paced startup environment, collaborating directly with the engineering team and product stakeholders.",
+            "Applying secure coding practices to protect user data and API endpoints, informed by my CyberSecurity Honours coursework.",
+        ],
     },
     {
         company: "Somaiya Machine Learning Association SMLRA",
         role: "Tech Head",
         period: "July 2025 - Present",
-        description: "Led full development and deployment of the council website, managing technical infrastructure and cloud hosting. Built React.js forms with Firebase Authentication for streamlined student registration and secure data handling. Implemented a database management system for 200+ student records across events and activities. Delivered a technical blockchain session as part of 'The TFM 2.0' workshop covering AI, blockchain, and quantitative finance.",
+        description: [
+            "Led full development and deployment of the council website, managing technical infrastructure and cloud hosting.",
+            "Built React.js forms with Firebase Authentication for streamlined student registration and secure data handling.",
+            "Implemented a database management system for 200+ student records across events and activities.",
+            "Delivered a technical blockchain session as part of 'The TFM 2.0' workshop covering AI, blockchain, and quantitative finance.",
+        ],
     },
     {
         company: "Crowdsource by Google India",
         role: "Crowdsource Learning Community Influencer",
         period: "August 2025 - October 2025",
-        description: "Conducted student-led Google Crowdsource seminars to help students understand the importance of crowdsourcing in the inclusive training of AI models.Educated participants on the need for diverse and representative data in machine learning datasets to improve fairness and Bias.Contributed 50+ meaningful submissions to the Crowdsource program in the STEM domain, aiding in the development of more homogeneous and diverse training data for Google's upcoming AI models.Engaged with a passionate community of learners, encouraging collaboration and awareness around real-world data annotation challenges.",
+        description: [
+            "Conducted student-led seminars on the role of crowdsourcing in training inclusive, unbiased AI models.",
+            "Educated participants on the need for diverse and representative data in machine learning datasets.",
+            "Contributed 50+ meaningful submissions to the Crowdsource program in the STEM domain.",
+            "Engaged with a community of learners around real-world data annotation challenges.",
+        ],
     },
     {
         company: "SmowCode",
         role: "FullStack Developer | Intern",
         period: "June 2025 - July 2025",
-        description: "Developed a native desktop application in Python for microcontroller flashing, achieving ~30% faster performance. Implemented serial monitor debugging tools tailored for embedded systems workflows. Created thorough test suites and documentation ensuring cross-platform support on Windows, macOS, and Linux. Recognized for exceptional project management, clean code organization, and effective collaborative development.",
+        description: [
+            "Developed a native desktop application in Python for microcontroller flashing, achieving ~30% faster performance.",
+            "Implemented serial monitor debugging tools tailored for embedded systems workflows.",
+            "Created thorough test suites and documentation ensuring cross-platform support on Windows, macOS, and Linux.",
+            "Recognized for exceptional project management, clean code organization, and effective collaborative development.",
+        ],
     },
     {
         company: "SwDC KJSSE",
         role: "Backend Developer | Intern",
         period: "May 2025 - July 2025",
-        description: "Architected and developed a RESTful backend API for an institutional feedback system with Node.js and Express.js.Designed database schemas in MongoDB supporting users, authentication, and feedback processing.Built an admin dashboard featuring full CRUD operations, data visualization, and real-time analytics.Implemented secure role-based access control using JWT authentication and bcryptjs encryption.",
+        description: [
+            "Architected and developed a RESTful backend API for an institutional feedback system with Node.js and Express.js.",
+            "Designed database schemas in MongoDB supporting users, authentication, and feedback processing.",
+            "Built an admin dashboard featuring full CRUD operations, data visualization, and real-time analytics.",
+            "Implemented secure role-based access control using JWT authentication and bcryptjs encryption.",
+        ],
     },
 ]
 

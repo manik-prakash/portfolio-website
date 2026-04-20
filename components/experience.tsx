@@ -56,9 +56,14 @@ export function Experience() {
                     isOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
                   }`}
                 >
-                  <p className="px-6 pb-6 text-sm sm:text-base text-muted-foreground leading-relaxed">
-                    {exp.description}
-                  </p>
+                  <ul className="px-6 pb-6 space-y-2">
+                    {exp.description.map((point, i) => (
+                      <li key={i} className="flex items-start gap-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
+                        <span className="text-accent mt-1 shrink-0">▸</span>
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             )
