@@ -38,13 +38,6 @@ export interface SocialLink {
     ariaLabel: string
 }
 
-export const personalInfo = {
-    name: "Manik Prakash",
-    location: "Mumbai, India",
-    tagline: "",
-}
-
-
 export const socialLinks: SocialLink[] = [
     { name: "github", url: "https://github.com/manik-prakash", ariaLabel: "GitHub" },
     { name: "linkedin", url: "https://www.linkedin.com/in/manik-prakash/", ariaLabel: "LinkedIn" },
@@ -56,7 +49,7 @@ export const education: Education[] = [
     {
         institution: "K. J. Somaiya School of Engineering, Mumbai",
         degree: "B.Tech in Computer Engineering (Honours in CyberSecurity)",
-        period: "2023 - 2027",
+        period: "2023 - 2027 (Expected)",
         description: "Relevant coursework: Data Structures, Algorithms, Database Management, Operating Systems, Computer Networks, Machine Learning. Active member of technical council(SMLRA) and hackathon participant.",
     },
     {
@@ -69,9 +62,15 @@ export const education: Education[] = [
 
 export const experiences: Experience[] = [
     {
+        company: "Boomlex Technologies Private Limited",
+        role: "Full Stack Engineer | Inten",
+        period: "Feb 2026 - Present",
+        description: "Building and shipping production features for a live SaaS product using React, Node.js, and TypeScript — handling everything from API design to frontend state management. Owning end-to-end feature development in a fast-paced startup environment, collaborating directly with the engineering team and product stakeholders. Applying secure coding practices to protect user data and API endpoints, informed by my CyberSecurity Honours coursework.",
+    },
+    {
         company: "Somaiya Machine Learning Association SMLRA",
-        role: "Tech Head | fulltime",
-        period: "july 2025 - present",
+        role: "Tech Head",
+        period: "July 2025 - Present",
         description: "Led full development and deployment of the council website, managing technical infrastructure and cloud hosting. Built React.js forms with Firebase Authentication for streamlined student registration and secure data handling. Implemented a database management system for 200+ student records across events and activities. Delivered a technical blockchain session as part of 'The TFM 2.0' workshop covering AI, blockchain, and quantitative finance.",
     },
     {
@@ -82,14 +81,14 @@ export const experiences: Experience[] = [
     },
     {
         company: "SmowCode",
-        role: "FullStack Developer | intern",
-        period: "june 2025 - july 2025",
+        role: "FullStack Developer | Intern",
+        period: "June 2025 - July 2025",
         description: "Developed a native desktop application in Python for microcontroller flashing, achieving ~30% faster performance. Implemented serial monitor debugging tools tailored for embedded systems workflows. Created thorough test suites and documentation ensuring cross-platform support on Windows, macOS, and Linux. Recognized for exceptional project management, clean code organization, and effective collaborative development.",
     },
     {
         company: "SwDC KJSSE",
-        role: "Backend Developer | intern",
-        period: "may 2025 - july 2025",
+        role: "Backend Developer | Intern",
+        period: "May 2025 - July 2025",
         description: "Architected and developed a RESTful backend API for an institutional feedback system with Node.js and Express.js.Designed database schemas in MongoDB supporting users, authentication, and feedback processing.Built an admin dashboard featuring full CRUD operations, data visualization, and real-time analytics.Implemented secure role-based access control using JWT authentication and bcryptjs encryption.",
     },
 ]
@@ -115,7 +114,7 @@ export const projects: Project[] = [
         fullDescription:
             "DoodleChat is a fun real-time collaboration app where users can create or join rooms and draw together on a shared canvas while chatting at the same time. It supports multiple users in a room, live drawing updates, and instant messaging using WebSockets. The frontend is built with Next.js, while the backend is split into a REST API for authentication and room management and a WebSocket server for real-time events. All drawings and chat messages are saved in a PostgreSQL database so users can see existing content when they rejoin a room.",
         whyBuilt:
-            "I built this project to learn how real-time applications work under the hood. I wanted hands-on experience with WebSockets, syncing data between multiple users, and handling edge cases like users joining, leaving, or reconnecting to rooms.",
+            "Most real-time collaboration tools are either too heavy or too friction-heavy for quick technical sessions. DoodleChat targets that gap — a lightweight, room-based canvas with zero setup. The hard engineering problems were concurrent drawing state across clients, late-join canvas sync, and graceful WebSocket reconnection without data loss.",
         highlights: [
             "Real-time drawing synced across all users",
             "Live chat inside drawing rooms",
@@ -147,7 +146,7 @@ export const projects: Project[] = [
         fullDescription:
             "ThoughtCache is a full-stack application that helps users capture and manage their thoughts, notes, and ideas in a structured way. Users can create items, tag them, star important notes, and even share selected items publicly using unique links. The backend is built with Express and MongoDB, while the frontend uses React and TailwindCSS for a clean and responsive UI. The app is fully containerized with Docker and deployed using Kubernetes, making it a great mix of full-stack and DevOps learning.",
         whyBuilt:
-            "I built ThoughtCache to create my own version of a Second Brain and to get hands-on experience with building a complete full-stack application. This project helped me understand backend architecture, authentication, frontend state management, and real-world deployment using Docker and Kubernetes.",
+            "Existing note tools either lock data in proprietary formats or lack public sharing without friction. ThoughtCache was built for personal use — a self-hosted knowledge base where everything is owned, exportable, and shareable via clean slugs. Running it on Kubernetes came from a real need: surviving traffic spikes when shared links go public.",
         highlights: [
             "Create, edit, delete, and star notes and ideas",
             "Tag-based organization",
@@ -174,7 +173,7 @@ export const projects: Project[] = [
         fullDescription:
             "GitStory is a GitHub timeline visualizer where users can enter a GitHub username and see all their public repositories displayed in a chronological timeline. The app shows useful stats like total repositories, active years, and average repos per year, along with a year-wise bar chart. It is built using Next.js App Router with a simple API route that fetches data from the GitHub API. The UI supports light, dark, and system themes and focuses on clean visuals and smooth interactions.",
         whyBuilt:
-            "I built GitStory to practice working with public APIs and to improve my frontend skills with Next.js and modern UI patterns. I also wanted to learn how to design data-heavy UIs and present information in a clean and visual way.",
+            "GitHub profiles show repositories as a flat list — there's no narrative, no sense of how a developer has grown over time. GitStory reframes the same data as a timeline, making it immediately readable to recruiters and collaborators who want to understand trajectory, not just output.",
         highlights: [
             "Visual timeline of GitHub repositories",
             "Year-wise stats and bar chart breakdown",
@@ -202,9 +201,9 @@ export const projects: Project[] = [
         github: "https://github.com/manik-prakash/TaskFlow",
         demo: "#",
         fullDescription:
-            "TaskFlow is a full-stack Todo application built to learn real-world containerization and Kubernetes deployment. The app consists of a Next.js frontend, an Express.js backend, and a MongoDB database, each running in separate Docker containers. These services are deployed on a 3-node Kubernetes cluster with proper services, deployments, and an Nginx reverse proxy to route traffic. The backend handles authentication and task management using JWT, while the frontend provides a clean dashboard for managing todos. The project focuses heavily on infrastructure, service communication, and production-like deployment practices.",
+            "TaskFlow is a full-stack task management application with a production-grade deployment architecture. The Next.js frontend, Express.js backend, and MongoDB database each run in isolated Docker containers, deployed across a 3-node Kubernetes cluster. Nginx handles reverse proxying and traffic routing between services. JWT authentication protects all task routes, and each pod runs as a non-root container with defined resource limits — matching the security posture expected in real cloud environments.",
         whyBuilt:
-            "I built TaskFlow to get hands-on experience with Docker and Kubernetes beyond just theory. My main goal was to understand how multiple services communicate inside a cluster, how reverse proxies work, and how real applications are deployed and managed in a cloud-native environment.",
+            "Cloud-native deployment is where most full-stack tutorials stop. TaskFlow was built to close that gap — to understand how services communicate inside a cluster under real network conditions, how ingress routing works, and what it actually takes to make a multi-service application production-ready rather than just locally runnable.",
         highlights: [
             "Dockerized frontend, backend, and database",
             "Deployed on a 3-node Kubernetes (KIND) cluster",
@@ -232,9 +231,9 @@ export const projects: Project[] = [
         github: "https://github.com/manik-prakash/SafeShare",
         demo: "#",
         fullDescription:
-            "SafeShare is a secure file management and sharing platform built as a mini-project for my Cybersecurity Honours lab. Users can upload files that are encrypted before being stored on the server and share them with other users using controlled permissions. The backend is built with Express and MongoDB and focuses on practical security concepts like AES-256 encryption, JWT-based authentication, role-based access control, and rate limiting. The frontend, built with Next.js, provides a simple dashboard for uploading, sharing, and managing files.",
+            "SafeShare is a secure file management and sharing platform developed for the Cybersecurity Honours lab. Every file is AES-256 encrypted before hitting disk. Access is controlled via JWT-based RBAC — users can only access their own files; admins get a separate dashboard with audit logs. Rate limiting and Helmet security headers are applied at the API layer. The goal was to build something that would survive a basic penetration test, not just work in a happy path.",
         whyBuilt:
-            "I built SafeShare as a hands-on mini-project for my Cybersecurity Honours lab to apply theoretical security concepts in a real application. The project helped me understand how encryption, authentication, access control, and secure backend practices are implemented in production-like systems.",
+            "Most file-sharing apps treat security as an afterthought. This project was the inverse — every architectural decision started from the threat model. What happens if the database is exfiltrated? (Files are encrypted at rest.) What if an endpoint is abused? (Rate limiting.) What if a user tries to access another user's files? (RBAC enforced server-side, not client-side.) Built as a Cybersecurity Honours lab project to put theory under real implementation pressure.",
         highlights: [
             "AES-256 encryption for files stored on the server",
             "JWT-based authentication with role-based access control (RBAC)",
@@ -262,9 +261,9 @@ export const projects: Project[] = [
         github: "https://github.com/manik-prakash/Chatty",
         demo: "#",
         fullDescription:
-            "Chatty is a full-stack real-time chat application developed as a mini-project for my Django coursework in college. It allows users to register, log in, create chat rooms, and exchange messages in real time using WebSockets powered by Django Channels. The backend uses Django and Django REST Framework for authentication, room management, and message persistence, while the frontend is built with React and Tailwind CSS for a clean and responsive UI. Messages are stored in the database so users can view chat history when they rejoin a room.",
+            "Chatty is a full-stack real-time chat application with a clean separation between REST and WebSocket concerns. The Django backend handles auth, room management, and message persistence via DRF, while Django Channels manages the WebSocket layer independently. The React frontend connects to both — HTTP for state bootstrapping, WebSocket for live events. CSRF protection is applied across both transports, and chat history is persisted so rooms are resumable after reconnection.",
         whyBuilt:
-            "I built Chatty as part of my Django coursework to understand how real-time applications work with Django Channels. The goal was to learn WebSocket integration, session-based authentication, and how HTTP APIs and WebSockets can work together in a single application.",
+            "Django's WebSocket story (Channels) is architecturally different from Node.js — it runs on ASGI and manages channel layers separately from the request/response cycle. This project was built to understand where that boundary sits and how to design a system where HTTP and WebSocket share auth state without creating security gaps between the two transports.",
         highlights: [
             "Real-time messaging using Django Channels and WebSockets",
             "Session-based authentication with CSRF protection",
@@ -290,9 +289,9 @@ export const projects: Project[] = [
         github: "https://github.com/manik-prakash/auth-jwt-cloudflare-workers",
         demo: "#",
         fullDescription:
-            "This project is a minimal authentication API built while learning serverless architecture and Cloudflare Workers for the first time. It provides user signup, login, and protected routes using JWT-based authentication. The API runs entirely on Cloudflare's edge using Workers, with data stored in Cloudflare D1 (a serverless SQLite database). Hono is used as a fast and lightweight framework, making the API simple, efficient, and easy to deploy globally.",
+            "A JWT authentication API running entirely on Cloudflare's edge network — no origin server, no cold-start penalty. Built with Hono on Workers and Cloudflare D1 as the SQLite-compatible database layer. Covers signup, login, and protected route middleware. The interesting constraint was stateless auth on a platform with no persistent memory between requests, which forced a clean JWT-only design without session fallbacks.",
         whyBuilt:
-            "I built this project while learning about serverless computing and Cloudflare Workers. It was my first hands-on project to understand how APIs can run without traditional servers, how edge functions work, and how authentication can be implemented in a stateless, cloud-native way.",
+            "Traditional auth APIs assume a long-lived server process. Edge computing breaks that assumption — Workers spin up in microseconds globally but hold no state between invocations. This project was built to understand what a stateless-first auth design actually looks like under those constraints, and whether D1's consistency model is reliable enough to trust for user data at the edge.",
         highlights: [
             "Built using Cloudflare Workers (serverless & edge-based)",
             "JWT-based authentication with protected routes",

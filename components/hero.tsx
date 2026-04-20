@@ -1,5 +1,5 @@
 import { Github, Linkedin, Mail, Twitter, FileText } from "lucide-react"
-import { personalInfo, socialLinks } from "@/data"
+import { socialLinks } from "@/data"
 
 export function Hero() {
   const resumeLink = "https://drive.google.com/file/d/1kme59R4cig7EPyTtn6dYYLW1yi8V170V/view"

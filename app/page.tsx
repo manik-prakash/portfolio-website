@@ -6,6 +6,7 @@ import { Experience } from "@/components/experience"
 import { Projects } from "@/components/projects"
 import { Achievements } from "@/components/achievements"
 import { Footer } from "@/components/footer"
+import { GithubGraph } from "@/components/github-graph"
 import Snowfall from 'react-snowfall'
 
 export default function Portfolio() {
@@ -18,7 +19,8 @@ export default function Portfolio() {
           left: 0,
           width: '100%',
           height: '100%',
-          zIndex: 50
+          zIndex: 50,
+          pointerEvents: 'none',
         }}
       />
       <Navbar />
@@ -27,6 +29,7 @@ export default function Portfolio() {
       <Experience />
       <Projects />
       <Achievements />
+      <GithubGraph />
       <Footer />
     </main>
   )

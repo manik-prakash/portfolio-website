@@ -8,12 +8,18 @@ export const navItems  = [
     { label: "experience", href: "#experience" },
     { label: "projects", href: "#projects" },
     { label: "achievements", href: "#achievements" },
+    { label: "activity", href: "#github" },
 ]
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("hero")
+
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : ""
+    return () => { document.body.style.overflow = "" }
+  }, [isMobileMenuOpen])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -87,7 +93,7 @@ export function Navbar() {
               <button
                 key={item.href}
                 onClick={() => handleNavClick(item.href)}
-                className={`text-2xl transition-colors duration-200 ${activeSection === item.href.substring(1)
+                className={`text-2xl px-8 py-3 transition-colors duration-200 ${activeSection === item.href.substring(1)
                   ? "text-accent"
                   : "text-muted-foreground hover:text-foreground"
                   }`}
