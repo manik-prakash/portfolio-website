@@ -10,7 +10,12 @@ export function Projects() {
   const [selectedProject, setSelectedProject] = useState<(typeof allProjects)[0] | null>(null)
   const ref = useRef<HTMLElement>(null)
 
-  const displayedProjects = showAll ? allProjects : allProjects.slice(0, 4)
+  const sortedProjects = [...allProjects].sort((a, b) => {
+    const aLive = a.demo && a.demo !== "#" ? 1 : 0
+    const bLive = b.demo && b.demo !== "#" ? 1 : 0
+    return bLive - aLive
+  })
+  const displayedProjects = showAll ? sortedProjects : sortedProjects.slice(0, 3)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -108,8 +113,8 @@ export function Projects() {
             ))}
           </div>
 
-          {!showAll && allProjects.length > 4 && (
-            <div className="flex justify-center">
+          {!showAll && (
+            <div className="flex justify-center mt-8">
               <button
                 onClick={() => setShowAll(true)}
                 className="px-6 py-3 bg-accent/10 hover:bg-accent/20 border border-accent/50 rounded-full text-accent transition-all duration-200 hover:scale-105"

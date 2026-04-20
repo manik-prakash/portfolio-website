@@ -23,6 +23,7 @@ CLAUDE.md
 # misc
 .DS_Store
 *.pem
+data.txt
 
 # debug
 npm-debug.log*

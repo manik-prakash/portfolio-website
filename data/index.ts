@@ -119,34 +119,97 @@ export const experiences: Experience[] = [
 
 export const projects: Project[] = [
     {
-        title: "DoodleChat",
+        title: "PromptForm",
         description:
-            "A real-time drawing and chat app where multiple users can join rooms, draw together on a shared canvas, and chat instantly.",
+            "An AI-powered form builder where users describe a form in natural language and the backend generates a validated, renderable JSON schema via LLM inference.",
         tech: [
             "Next.js",
             "TypeScript",
-            "WebSockets",
-            "Node.js",
-            "Express",
+            "Express.js",
             "PostgreSQL",
             "Prisma",
+            "OpenRouter",
+            "Zod",
+            "React Hook Form",
             "Tailwind CSS",
-            "Turborepo"
         ],
-        github: "https://github.com/manik-prakash/DoodleChat",
+        github: "https://github.com/manik-prakash/PromptForm",
+        demo: "https://prompt-form-brown.vercel.app",
+        fullDescription:
+            "PromptForm is a full-stack AI form builder where authenticated users describe a form in plain language and receive a working, shareable form in seconds. The backend calls OpenRouter to convert the prompt into a structured JSON schema, validates it with Zod, and persists it via Prisma to PostgreSQL. The frontend dynamically renders that schema into a live form using React Hook Form. Form owners can share public links, review submissions, and export schema or submission data. The JSON schema is the central contract — it connects LLM output, backend storage, frontend rendering, and submission validation into a single coherent pipeline.",
+        whyBuilt:
+            "Existing form builders are rigid — you drag components, configure fields one by one, and fight their UI. The real problem is that form structure is just data, and language models are good at generating structured data from descriptions. PromptForm treats the LLM as a schema compiler: natural language in, validated JSON out, working form rendered immediately.",
+        highlights: [
+            "Natural language → validated JSON schema via OpenRouter LLM",
+            "Zod schema validation on both generation output and form submissions",
+            "Prisma + PostgreSQL for form and submission persistence",
+            "Public form sharing with unique links",
+            "Dashboard with submission management and schema export",
+            "JWT authentication with bcryptjs password hashing",
+            "Monorepo structure with shared backend and frontend",
+        ],
+    },
+    {
+        title: "BetterUptime",
+        description:
+            "A full-stack uptime monitoring platform using Redis Streams for job distribution, background worker services, and a real-time dashboard for website health tracking.",
+        tech: [
+            "Next.js",
+            "TypeScript",
+            "Express.js",
+            "PostgreSQL",
+            "Prisma",
+            "Redis Streams",
+            "Zod",
+            "Turborepo",
+        ],
+        github: "https://github.com/manik-prakash/UpTime",
         demo: "#",
         fullDescription:
-            "DoodleChat is a fun real-time collaboration app where users can create or join rooms and draw together on a shared canvas while chatting at the same time. It supports multiple users in a room, live drawing updates, and instant messaging using WebSockets. The frontend is built with Next.js, while the backend is split into a REST API for authentication and room management and a WebSocket server for real-time events. All drawings and chat messages are saved in a PostgreSQL database so users can see existing content when they rejoin a room.",
+            "BetterUptime is an uptime monitoring platform built around a distributed job pipeline. A pusher service writes monitored website URLs into a Redis Stream on a configurable interval. Consumer groups of worker services read from the stream, perform HTTP checks, and write results — status, response time, region, timestamp — back to PostgreSQL via Prisma. The Express backend exposes a REST API for monitor management and dashboard aggregation. The Next.js frontend renders uptime history, response time trends, and health summaries. The Turborepo monorepo has clean package separation: db, redis, common schemas, backend, worker, pusher, and web.",
         whyBuilt:
-            "Most real-time collaboration tools are either too heavy or too friction-heavy for quick technical sessions. DoodleChat targets that gap — a lightweight, room-based canvas with zero setup. The hard engineering problems were concurrent drawing state across clients, late-join canvas sync, and graceful WebSocket reconnection without data loss.",
+            "Most uptime monitoring tutorials use cron jobs on a single process — which breaks the moment you want multiple workers or regional checks. The real architecture problem is job distribution: how do you fan out checks to multiple workers, prevent duplicate processing, and handle worker failures without losing jobs? Redis Streams with consumer groups is the correct answer, and this project was built to implement that pattern end to end.",
         highlights: [
-            "Real-time drawing synced across all users",
-            "Live chat inside drawing rooms",
-            "Canvas state and chat history stored in database",
-            "Monorepo setup using Turborepo",
-            "User join/leave notifications in real time",
-            "Clear canvas option for room owners",
-        ]
+            "Redis Streams with consumer groups for distributed job processing",
+            "Separate pusher and worker services for scalable check execution",
+            "PostgreSQL + Prisma for uptime history and response time tracking",
+            "Turborepo monorepo with shared db, redis, and validation packages",
+            "Zod input validation across all API endpoints",
+            "Dashboard aggregation: average uptime, response time, monitors needing attention",
+            "Region-based monitoring support",
+        ],
+    },
+    {
+        title: "DevScope",
+        description:
+            "An AI coding agent analytics platform with a Go CLI that wraps Claude Code and Codex, captures privacy-safe session telemetry, and scores developer-AI collaboration with LLM evaluation.",
+        tech: [
+            "Go",
+            "TypeScript",
+            "Express.js",
+            "PostgreSQL",
+            "Prisma",
+            "OpenRouter",
+            "Pino",
+            "JWT",
+            "Turborepo",
+        ],
+        github: "https://github.com/manik-prakash/devScope",
+        demo: "#",
+        fullDescription:
+            "DevScope is a platform for engineering teams to understand how developers use AI coding agents. The Go CLI wraps Claude Code or Codex — it snapshots the filesystem before and after a session, parses agent logs via adapters, normalizes and redacts sensitive content, signs the payload with an API key, and ships it to the backend. The Express backend verifies the signature, stores the sanitized session in PostgreSQL, and asynchronously evaluates it via OpenRouter. Role-based access control separates manager and developer views. Access and refresh token rotation, Pino structured logging, and Zod validation are applied throughout. The privacy model is strict: no raw code, file names, or prompt text leaves the developer machine.",
+        whyBuilt:
+            "AI coding agents are becoming default workflow tools, but engineering teams have no visibility into how they're being used — which agents, what tasks, how effectively. DevScope addresses that gap with a privacy-first design: behavioral metadata and aggregate stats only, never source content. The Go CLI was chosen specifically because it ships as a single binary with no runtime dependency, which is the right distribution model for a developer tool.",
+        highlights: [
+            "Go CLI wrapping Claude Code and Codex with log parsing adapters",
+            "Privacy-first pipeline: normalize → redact → sign → ship",
+            "HMAC payload signing with API key for tamper detection",
+            "RBAC with Manager and Developer roles across org/project hierarchy",
+            "Access + refresh token rotation with revocation",
+            "Pino structured logging for observability",
+            "Async AI evaluation via OpenRouter with PENDING/SCORED/FAILED states",
+            "Offline queue — sessions submitted when connectivity is restored",
+        ],
     },
     {
         title: "ThoughtCache",
@@ -182,150 +245,36 @@ export const projects: Project[] = [
         ]
     },
     {
-        title: "GitStory",
+        title: "CareerWiki",
         description:
-            "A clean and interactive web app that visualizes a GitHub user's repositories as a timeline with stats and yearly breakdowns.",
+            "An AI-powered career education platform with interactive career simulations, Gemini-powered coaching, personalized onboarding, and progress tracking for students.",
         tech: [
             "Next.js",
-            "React",
             "TypeScript",
+            "MongoDB",
+            "Mongoose",
+            "Google Gemini",
+            "JWT",
             "Tailwind CSS",
-            "GitHub API"
+            "Framer Motion",
+            "shadcn/ui",
         ],
-        github: "https://github.com/manik-prakash/GitStory",
-        demo: "https://gitstory-002.vercel.app/",
+        github: "https://github.com/manik-prakash/csi-gemini-hackday",
+        demo: "https://careerwiki.vercel.app",
         fullDescription:
-            "GitStory is a GitHub timeline visualizer where users can enter a GitHub username and see all their public repositories displayed in a chronological timeline. The app shows useful stats like total repositories, active years, and average repos per year, along with a year-wise bar chart. It is built using Next.js App Router with a simple API route that fetches data from the GitHub API. The UI supports light, dark, and system themes and focuses on clean visuals and smooth interactions.",
+            "CareerWiki is an AI-powered career education platform built for the CSI Gemini Hackdays. Users complete a personalized onboarding flow, then explore careers through interactive roleplay simulations, a Gemini-powered career counselor chatbot, curated resources, and entrance exam guidance. Each simulation runs through branching scenario stages — Gemini streams realistic narration, the user selects decisions, and the system tracks choices, reveals relevant skills, and generates a final performance evaluation. A dashboard surfaces activity streaks, AI-generated career recommendations scored against the user's profile, and exploration history.",
         whyBuilt:
-            "GitHub profiles show repositories as a flat list — there's no narrative, no sense of how a developer has grown over time. GitStory reframes the same data as a timeline, making it immediately readable to recruiters and collaborators who want to understand trajectory, not just output.",
+            "Students are asked to choose careers without understanding what professionals actually do day to day. Static career guides don't solve this — they describe roles, not experience them. CareerWiki uses branching AI simulations to put students inside real workplace scenarios: an ER triage decision, a code review, a client negotiation. The goal is career discovery through doing, not reading.",
         highlights: [
-            "Visual timeline of GitHub repositories",
-            "Year-wise stats and bar chart breakdown",
-            "Light, dark, and system theme support",
-            "Input validation and error handling",
-            "API route to safely fetch GitHub data",
-            "Clean and responsive UI with Tailwind CSS",
-        ]
+            "Gemini streaming for scenario narration and real-time career counseling",
+            "Branching scenario engine with stage progression and skill tracking",
+            "AI-generated career recommendations with match scores and reasoning",
+            "Multi-step personalized onboarding saved to MongoDB",
+            "Activity streak tracking and dashboard analytics",
+            "HTTP-only cookie JWT auth with bcrypt password hashing",
+            "Hackathon project — CSI Gemini Hackdays",
+        ],
     },
-    {
-        title: "TaskFlow",
-        description:
-            "A full-stack Todo application containerized with Docker and deployed on a multi-node Kubernetes cluster with Nginx reverse proxy.",
-        tech: [
-            "Next.js",
-            "React",
-            "TypeScript",
-            "Node.js",
-            "Express",
-            "MongoDB",
-            "Docker",
-            "Kubernetes",
-            "Nginx"
-        ],
-        github: "https://github.com/manik-prakash/TaskFlow",
-        demo: "#",
-        fullDescription:
-            "TaskFlow is a full-stack task management application with a production-grade deployment architecture. The Next.js frontend, Express.js backend, and MongoDB database each run in isolated Docker containers, deployed across a 3-node Kubernetes cluster. Nginx handles reverse proxying and traffic routing between services. JWT authentication protects all task routes, and each pod runs as a non-root container with defined resource limits — matching the security posture expected in real cloud environments.",
-        whyBuilt:
-            "Cloud-native deployment is where most full-stack tutorials stop. TaskFlow was built to close that gap — to understand how services communicate inside a cluster under real network conditions, how ingress routing works, and what it actually takes to make a multi-service application production-ready rather than just locally runnable.",
-        highlights: [
-            "Dockerized frontend, backend, and database",
-            "Deployed on a 3-node Kubernetes (KIND) cluster",
-            "Nginx reverse proxy for routing frontend and API traffic",
-            "Separate Kubernetes deployments and services for each component",
-            "JWT-based authentication with protected routes",
-            "MongoDB service running inside the cluster",
-            "Defined resource requests and limits for pods",
-            "Non-root containers for better security",
-        ]
-    },
-    {
-        title: "SafeShare",
-        description:
-            "A secure file upload and sharing platform built as a cybersecurity mini-project, focusing on encryption, access control, and backend security.",
-        tech: [
-            "Next.js",
-            "TypeScript",
-            "Node.js",
-            "Express",
-            "MongoDB",
-            "JWT",
-            "Helmet",
-        ],
-        github: "https://github.com/manik-prakash/SafeShare",
-        demo: "#",
-        fullDescription:
-            "SafeShare is a secure file management and sharing platform developed for the Cybersecurity Honours lab. Every file is AES-256 encrypted before hitting disk. Access is controlled via JWT-based RBAC — users can only access their own files; admins get a separate dashboard with audit logs. Rate limiting and Helmet security headers are applied at the API layer. The goal was to build something that would survive a basic penetration test, not just work in a happy path.",
-        whyBuilt:
-            "Most file-sharing apps treat security as an afterthought. This project was the inverse — every architectural decision started from the threat model. What happens if the database is exfiltrated? (Files are encrypted at rest.) What if an endpoint is abused? (Rate limiting.) What if a user tries to access another user's files? (RBAC enforced server-side, not client-side.) Built as a Cybersecurity Honours lab project to put theory under real implementation pressure.",
-        highlights: [
-            "AES-256 encryption for files stored on the server",
-            "JWT-based authentication with role-based access control (RBAC)",
-            "Rate limiting and security headers using Helmet",
-            "User and admin roles with permission-based access",
-            "Secure file sharing ",
-            "Server-side logging for admin monitoring",
-            "Clean and responsive Next.js frontend with dark mode",
-        ]
-    },
-    {
-        title: "Chatty",
-        description:
-            "A real-time chat application built as a Django coursework mini-project using WebSockets for live messaging.",
-        tech: [
-            "Django",
-            "Django Channels",
-            "Python",
-            "React",
-            "Vite",
-            "WebSockets",
-            "SQLite",
-            "Tailwind CSS"
-        ],
-        github: "https://github.com/manik-prakash/Chatty",
-        demo: "#",
-        fullDescription:
-            "Chatty is a full-stack real-time chat application with a clean separation between REST and WebSocket concerns. The Django backend handles auth, room management, and message persistence via DRF, while Django Channels manages the WebSocket layer independently. The React frontend connects to both — HTTP for state bootstrapping, WebSocket for live events. CSRF protection is applied across both transports, and chat history is persisted so rooms are resumable after reconnection.",
-        whyBuilt:
-            "Django's WebSocket story (Channels) is architecturally different from Node.js — it runs on ASGI and manages channel layers separately from the request/response cycle. This project was built to understand where that boundary sits and how to design a system where HTTP and WebSocket share auth state without creating security gaps between the two transports.",
-        highlights: [
-            "Real-time messaging using Django Channels and WebSockets",
-            "Session-based authentication with CSRF protection",
-            "Create, join, and manage chat rooms",
-            "Persistent chat history stored in the database",
-            "Clean React frontend with Tailwind CSS",
-            "Clear separation between REST APIs and WebSocket logic",
-            "Built as a hands-on Django coursework mini-project",
-        ]
-    },
-    {
-        title: "Serverless JWT Auth API",
-        description:
-            "A lightweight authentication API built as my first serverless project using Cloudflare Workers and Hono.",
-        tech: [
-            "Cloudflare Workers",
-            "Hono",
-            "TypeScript",
-            "JWT",
-            "Cloudflare D1",
-            "Wrangler"
-        ],
-        github: "https://github.com/manik-prakash/auth-jwt-cloudflare-workers",
-        demo: "#",
-        fullDescription:
-            "A JWT authentication API running entirely on Cloudflare's edge network — no origin server, no cold-start penalty. Built with Hono on Workers and Cloudflare D1 as the SQLite-compatible database layer. Covers signup, login, and protected route middleware. The interesting constraint was stateless auth on a platform with no persistent memory between requests, which forced a clean JWT-only design without session fallbacks.",
-        whyBuilt:
-            "Traditional auth APIs assume a long-lived server process. Edge computing breaks that assumption — Workers spin up in microseconds globally but hold no state between invocations. This project was built to understand what a stateless-first auth design actually looks like under those constraints, and whether D1's consistency model is reliable enough to trust for user data at the edge.",
-        highlights: [
-            "Built using Cloudflare Workers (serverless & edge-based)",
-            "JWT-based authentication with protected routes",
-            "Uses Cloudflare D1 for serverless database storage",
-            "Lightweight Hono framework for fast API handling",
-            "No traditional backend server or infrastructure",
-            "Deployed globally using Cloudflare's edge network",
-            "First hands-on project exploring serverless architecture",
-        ]
-    }
 ]
 
 
