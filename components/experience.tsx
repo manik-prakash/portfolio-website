@@ -53,7 +53,7 @@ export function Experience() {
 
                 <div
                   className={`overflow-hidden transition-all duration-300 ${
-                    isOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
+                    isOpen ? "max-h-150 opacity-100" : "max-h-0 opacity-0"
                   }`}
                 >
                   <ul className="px-6 pb-6 space-y-2">
