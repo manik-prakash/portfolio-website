@@ -1,9 +1,9 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Github, Linkedin, Mail, Twitter } from "lucide-react"
 import { socialLinks } from "@/data"
-import { PixelTrail } from "@/components/ui/pixel-trail"
+import { PixelTrail, type PixelTrailHandle } from "@/components/ui/pixel-trail"
 import { useScreenSize } from "@/hooks/use-screen-size"
 
 const TYPED_WORDS = ["AI-powered products", "scalable APIs", "dev infrastructure", "full-stack apps"]
@@ -14,6 +14,7 @@ export function Hero() {
   const [displayed, setDisplayed] = useState("")
   const [deleting, setDeleting] = useState(false)
   const screenSize = useScreenSize()
+  const pixelTrailRef = useRef<PixelTrailHandle>(null)
 
   useEffect(() => {
     const word = TYPED_WORDS[wordIndex]
@@ -34,9 +35,14 @@ export function Hero() {
   }, [displayed, deleting, wordIndex])
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 overflow-hidden">
-      <div className="absolute inset-0 z-20">
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 overflow-hidden"
+      onMouseMove={(e) => pixelTrailRef.current?.handleMouseMove(e)}
+    >
+      <div className="absolute inset-0 pointer-events-none">
         <PixelTrail
+          ref={pixelTrailRef}
           pixelSize={screenSize.lessThan("md") ? 20 : 28}
           fadeDuration={800}
           delay={0}
@@ -52,7 +58,7 @@ export function Hero() {
           <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8">
             from Mumbai, India
           </p>
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mb-12 leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mb-12 leading-relaxed min-h-[5rem] sm:min-h-[5.5rem]">
             Full-stack engineer building{" "}
             <span className="text-accent font-mono">
               {displayed}
