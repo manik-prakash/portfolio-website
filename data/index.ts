@@ -74,7 +74,7 @@ export const experiences: Experience[] = [
     },
     {
         company: "Boomlex Technologies Private Limited",
-        role: "Full Stack Engineer | Intern",
+        role: "Full Stack Engineer Intern",
         period: "Feb 2026 - May 2026",
         description: [
             "Building and shipping production features for a live SaaS product using React, Node.js, and TypeScript — handling everything from API design to frontend state management.",
@@ -106,7 +106,7 @@ export const experiences: Experience[] = [
     },
     {
         company: "SmowCode",
-        role: "FullStack Developer | Intern",
+        role: "FullStack Developer Intern",
         period: "June 2025 - July 2025",
         description: [
             "Developed a native desktop application in Python for microcontroller flashing, achieving ~30% faster performance.",
@@ -117,7 +117,7 @@ export const experiences: Experience[] = [
     },
     {
         company: "SwDC KJSSE",
-        role: "Backend Developer | Intern",
+        role: "Backend Developer Intern",
         period: "May 2025 - July 2025",
         description: [
             "Architected and developed a RESTful backend API for an institutional feedback system with Node.js and Express.js.",
