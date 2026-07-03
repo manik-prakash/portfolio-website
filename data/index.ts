@@ -62,10 +62,10 @@ export const education: Education[] = [
 
 export const experiences: Experience[] = [
     {
-        company:"Arcon",
-        role:"Summer Intern",
-        period:"Jun 2026 - Present",
-        description:[
+        company: "Arcon",
+        role: "Summer Intern",
+        period: "June 2026 - Present",
+        description: [
             "Optimizing Dockerfiles for backend services, reducing image size and improving build efficiency",
             "Refactoring and optimizing Jenkins CI pipelines to streamline build and deployment workflows",
             "Leading migration of microservices from .NET 8 to .NET 10 across services running on Kubernetes",
