@@ -62,9 +62,20 @@ export const education: Education[] = [
 
 export const experiences: Experience[] = [
     {
+        company:"Arcon",
+        role:"Summer Intern",
+        period:"Jun 2026 - Present",
+        description:[
+            "Optimizing Dockerfiles for backend services, reducing image size and improving build efficiency",
+            "Refactoring and optimizing Jenkins CI pipelines to streamline build and deployment workflows",
+            "Leading migration of microservices from .NET 8 to .NET 10 across services running on Kubernetes",
+            "Optimizing frontend Dockerfiles to improve build times and container performance",
+        ],
+    },
+    {
         company: "Boomlex Technologies Private Limited",
         role: "Full Stack Engineer | Intern",
-        period: "Feb 2026 - Present",
+        period: "Feb 2026 - May 2026",
         description: [
             "Building and shipping production features for a live SaaS product using React, Node.js, and TypeScript — handling everything from API design to frontend state management.",
             "Owning end-to-end feature development in a fast-paced startup environment, collaborating directly with the engineering team and product stakeholders.",
