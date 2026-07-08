@@ -64,7 +64,7 @@ export function Hero() {
               {displayed}
               <span className="animate-pulse">|</span>
             </span>
-            . Currently shipping at Boomlex.
+            . Currently shipping at Arcon.
           </p>
 
           <div className="flex gap-4 items-center flex-wrap">
