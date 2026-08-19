@@ -64,12 +64,12 @@ export const experiences: Experience[] = [
     {
         company: "Arcon",
         role: "Summer Intern",
-        period: "June 2026 - Present",
+        period: "June 2026 - July 2026",
         description: [
-            "Optimizing Dockerfiles for backend services, reducing image size and improving build efficiency",
-            "Refactoring and optimizing Jenkins CI pipelines to streamline build and deployment workflows",
-            "Leading migration of microservices from .NET 8 to .NET 10 across services running on Kubernetes",
-            "Optimizing frontend Dockerfiles to improve build times and container performance",
+            "Reduced backend service image sizes and accelerated build times by optimizing Dockerfiles across multiple services, improving overall build efficiency.",
+            "Streamlined build and deployment workflows by refactoring and optimizing Jenkins CI pipelines, cutting down pipeline execution time.",
+            "Modernized the platform's runtime by leading the migration of microservices from .NET 8 to .NET 10 across Kubernetes-hosted services, ensuring compatibility and stability.",
+            "Improved frontend container performance by optimizing frontend Dockerfiles, reducing build times.",
         ],
     },
     {
@@ -77,9 +77,9 @@ export const experiences: Experience[] = [
         role: "Full Stack Engineer Intern",
         period: "Feb 2026 - May 2026",
         description: [
-            "Building and shipping production features for a live SaaS product using React, Node.js, and TypeScript — handling everything from API design to frontend state management.",
-            "Owning end-to-end feature development in a fast-paced startup environment, collaborating directly with the engineering team and product stakeholders.",
-            "Applying secure coding practices to protect user data and API endpoints, informed by my CyberSecurity Honours coursework.",
+            "Shipped production features for a live SaaS product by building end-to-end functionality with React, Node.js, and TypeScript, spanning API design to frontend state management.",
+            "Delivered features independently in a fast-paced startup environment by owning end-to-end development and collaborating directly with engineering and product stakeholders.",
+            "Protected user data and API endpoints by applying secure coding practices informed by CyberSecurity Honours coursework.",
         ],
     },
     {
@@ -87,10 +87,10 @@ export const experiences: Experience[] = [
         role: "Tech Head",
         period: "July 2025 - Present",
         description: [
-            "Led full development and deployment of the council website, managing technical infrastructure and cloud hosting.",
-            "Built React.js forms with Firebase Authentication for streamlined student registration and secure data handling.",
-            "Implemented a database management system for 200+ student records across events and activities.",
-            "Delivered a technical blockchain session as part of 'The TFM 2.0' workshop covering AI, blockchain, and quantitative finance.",
+            "Delivered the council's official website by leading its full development and deployment, managing technical infrastructure and cloud hosting.",
+            "Streamlined student registration by building React.js forms with Firebase Authentication, enabling secure and efficient data handling.",
+            "Organized records for 200+ students by implementing a database management system spanning events and activities.",
+            "Educated 'The TFM 2.0' workshop attendees by delivering a technical session on blockchain, as part of a broader program covering AI and quantitative finance.",
         ],
     },
     {
@@ -98,10 +98,10 @@ export const experiences: Experience[] = [
         role: "Crowdsource Learning Community Influencer",
         period: "August 2025 - October 2025",
         description: [
-            "Conducted student-led seminars on the role of crowdsourcing in training inclusive, unbiased AI models.",
-            "Educated participants on the need for diverse and representative data in machine learning datasets.",
-            "Contributed 50+ meaningful submissions to the Crowdsource program in the STEM domain.",
-            "Engaged with a community of learners around real-world data annotation challenges.",
+            "Trained student audiences on inclusive AI development by conducting student-led seminars on crowdsourcing's role in reducing model bias.",
+            "Raised awareness of dataset representation by educating participants on the need for diverse data in machine learning.",
+            "Advanced the Crowdsource STEM program by contributing 50+ meaningful data submissions.",
+            "Built engagement with a peer learning community by facilitating discussions around real-world data annotation challenges.",
         ],
     },
     {
@@ -109,10 +109,10 @@ export const experiences: Experience[] = [
         role: "FullStack Developer Intern",
         period: "June 2025 - July 2025",
         description: [
-            "Developed a native desktop application in Python for microcontroller flashing, achieving ~30% faster performance.",
-            "Implemented serial monitor debugging tools tailored for embedded systems workflows.",
-            "Created thorough test suites and documentation ensuring cross-platform support on Windows, macOS, and Linux.",
-            "Recognized for exceptional project management, clean code organization, and effective collaborative development.",
+            "Achieved ~30% faster microcontroller flashing by developing a native Python desktop application for the task.",
+            "Simplified embedded systems debugging by implementing serial monitor tools tailored to microcontroller workflows.",
+            "Ensured reliable cross-platform support on Windows, macOS, and Linux by creating thorough test suites and documentation.",
+            "Earned recognition for exceptional project management by maintaining clean code organization and effective collaborative development practices.",
         ],
     },
     {
@@ -120,10 +120,10 @@ export const experiences: Experience[] = [
         role: "Backend Developer Intern",
         period: "May 2025 - July 2025",
         description: [
-            "Architected and developed a RESTful backend API for an institutional feedback system with Node.js and Express.js.",
-            "Designed database schemas in MongoDB supporting users, authentication, and feedback processing.",
-            "Built an admin dashboard featuring full CRUD operations, data visualization, and real-time analytics.",
-            "Implemented secure role-based access control using JWT authentication and bcryptjs encryption.",
+            "Delivered a RESTful backend API for an institutional feedback system by architecting and developing it with Node.js and Express.js.",
+            "Enabled robust data handling by designing MongoDB schemas supporting users, authentication, and feedback processing.",
+            "Provided real-time insight into feedback data by building an admin dashboard with full CRUD operations and data visualization.",
+            "Secured system access by implementing role-based access control using JWT authentication and bcryptjs encryption.",
         ],
     },
 ]
