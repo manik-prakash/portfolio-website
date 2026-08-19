@@ -57,6 +57,7 @@ export function Projects() {
         className="border-t border-border/40 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-24 sm:py-32"
       >
         <div className="max-w-4xl w-full mx-auto">
+          <p className="font-mono text-sm text-accent mb-3">&gt; projects</p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12">projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             {displayedProjects.map((project, index) => (
@@ -64,7 +65,7 @@ export function Projects() {
                 key={index}
                 onClick={() => setSelectedProject(project)}
                 style={{ transitionDelay: `${index * 80}ms` }}
-                className={`group bg-secondary/20 hover:bg-secondary/40 border border-border rounded-lg p-6 transition-all duration-300 hover:border-accent/50 hover:scale-[1.02] hover:shadow-lg hover:shadow-accent/5 text-left w-full cursor-pointer flex flex-col ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+                className={`group bg-secondary/20 hover:bg-secondary/40 border border-border rounded-sm p-6 transition-all duration-300 hover:border-accent/50 hover:scale-[1.02] hover:shadow-lg hover:shadow-accent/5 text-left w-full cursor-pointer flex flex-col ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
               >
                 <div className="flex items-start justify-between mb-3">
                   <h3 className="text-lg sm:text-xl font-semibold text-foreground group-hover:text-accent transition-colors duration-200">
@@ -100,7 +101,7 @@ export function Projects() {
                 <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((tech, techIndex) => (
-                    <span key={techIndex} className="text-xs px-3 py-1 bg-muted rounded-full text-muted-foreground">
+                    <span key={techIndex} className="text-xs font-mono px-3 py-1 bg-muted rounded-sm text-muted-foreground">
                       {tech}
                     </span>
                   ))}
@@ -117,7 +118,7 @@ export function Projects() {
             {!showAll && (
               <button
                 onClick={() => setShowAll(true)}
-                className="px-6 py-3 bg-accent/10 hover:bg-accent/20 border border-accent/50 rounded-full text-accent transition-all duration-200 hover:scale-105"
+                className="px-6 py-3 font-mono text-sm bg-accent/10 hover:bg-accent/20 border border-accent/50 rounded-sm text-accent transition-all duration-200"
               >
                 show all projects ({allProjects.length})
               </button>
@@ -126,7 +127,7 @@ export function Projects() {
               href="https://github.com/manik-prakash"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3 border border-border hover:border-accent/50 rounded-full text-muted-foreground hover:text-accent transition-all duration-200 hover:scale-105"
+              className="flex items-center gap-2 px-6 py-3 font-mono text-sm border border-border hover:border-accent/50 rounded-sm text-muted-foreground hover:text-accent transition-all duration-200"
             >
               <Github className="w-4 h-4" />
               <span>more on github</span>
@@ -142,7 +143,7 @@ export function Projects() {
           onClick={() => setSelectedProject(null)}
         >
           <div
-            className="bg-secondary/40 backdrop-blur-sm border border-border rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto"
+            className="bg-secondary/40 backdrop-blur-sm border border-border rounded-sm max-w-3xl w-full max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="sticky top-0 bg-secondary/80 backdrop-blur-md border-b border-border p-6 flex items-start justify-between">
@@ -150,7 +151,7 @@ export function Projects() {
                 <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">{selectedProject.title}</h3>
                 <div className="flex flex-wrap gap-2 mb-3">
                   {selectedProject.tech.map((tech, index) => (
-                    <span key={index} className="text-xs px-3 py-1 bg-muted rounded-full text-muted-foreground">
+                    <span key={index} className="text-xs font-mono px-3 py-1 bg-muted rounded-sm text-muted-foreground">
                       {tech}
                     </span>
                   ))}
@@ -194,7 +195,7 @@ export function Projects() {
                     href={selectedProject.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-6 py-3 bg-accent/10 hover:bg-accent/20 border border-accent/50 rounded-full text-accent transition-all duration-200 hover:scale-105"
+                    className="flex items-center gap-2 px-6 py-3 font-mono text-sm bg-accent/10 hover:bg-accent/20 border border-accent/50 rounded-sm text-accent transition-all duration-200"
                   >
                     <Github className="w-5 h-5" />
                     <span>view code</span>
@@ -205,7 +206,7 @@ export function Projects() {
                     href={selectedProject.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-6 py-3 bg-accent/10 hover:bg-accent/20 border border-accent/50 rounded-full text-accent transition-all duration-200 hover:scale-105"
+                    className="flex items-center gap-2 px-6 py-3 font-mono text-sm bg-accent/10 hover:bg-accent/20 border border-accent/50 rounded-sm text-accent transition-all duration-200"
                   >
                     <ExternalLink className="w-5 h-5" />
                     <span>live demo</span>

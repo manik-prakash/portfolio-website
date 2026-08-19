@@ -28,7 +28,7 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+      setIsScrolled(window.scrollY > 20)
       const sections = navItems.map((item) => item.href.substring(1))
       for (const section of sections) {
         const element = document.getElementById(section)
@@ -57,33 +57,40 @@ export function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${isScrolled ? "w-[95%] max-w-3xl" : "w-[95%] max-w-3xl"
-          }`}
+        className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300 ${
+          isScrolled ? "border-border bg-background/85 backdrop-blur-md" : "border-transparent bg-transparent"
+        }`}
       >
-        <div
-          className={`backdrop-blur-md bg-secondary/50 border border-border rounded-full px-6 py-3 transition-all duration-300 ${isScrolled ? "shadow-lg" : ""
-            }`}
-        >
-          <div className="flex items-center justify-between gap-2">
-            <div className="hidden md:flex items-center gap-0.5 mx-auto overflow-hidden">
-              {navItems.map((item) => (
-                <button
-                  key={item.href}
-                  onClick={() => handleNavClick(item.href)}
-                  className={`px-2.5 py-2 rounded-full text-sm whitespace-nowrap transition-all duration-200 ${activeSection === item.href.substring(1)
-                    ? "bg-accent/20 text-accent"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
-                    }`}
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between gap-2">
+          <button
+            onClick={() => handleNavClick("#hero")}
+            className="font-mono text-sm text-accent shrink-0"
+            aria-label="Go to top"
+          >
+            ~/manik
+          </button>
 
+          <div className="hidden md:flex items-center gap-1">
+            {navItems.map((item) => (
+              <button
+                key={item.href}
+                onClick={() => handleNavClick(item.href)}
+                className={`px-3 py-1.5 font-mono text-sm whitespace-nowrap transition-colors duration-200 ${
+                  activeSection === item.href.substring(1)
+                    ? "text-accent"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+
+          <div className="flex items-center gap-2 shrink-0">
             {mounted && (
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="shrink-0 p-2 rounded-full text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all duration-200"
+                className="p-2 border border-border rounded-sm text-muted-foreground hover:text-foreground hover:border-accent/50 transition-all duration-200"
                 aria-label="Toggle theme"
               >
                 {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
@@ -92,7 +99,7 @@ export function Navbar() {
 
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden text-foreground"
+              className="md:hidden p-2 border border-border rounded-sm text-foreground"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -108,7 +115,7 @@ export function Navbar() {
               <button
                 key={item.href}
                 onClick={() => handleNavClick(item.href)}
-                className={`text-2xl px-8 py-3 transition-colors duration-200 ${activeSection === item.href.substring(1)
+                className={`font-mono text-2xl px-8 py-3 transition-colors duration-200 ${activeSection === item.href.substring(1)
                   ? "text-accent"
                   : "text-muted-foreground hover:text-foreground"
                   }`}

@@ -11,6 +11,7 @@ export function Experience() {
   return (
     <AnimatedSection id="experience">
       <div className="max-w-4xl w-full mx-auto">
+        <p className="font-mono text-sm text-accent mb-3">&gt; experience</p>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12">Experience</h2>
         <div className="space-y-4">
           {experiences.map((exp, index) => {
@@ -20,7 +21,7 @@ export function Experience() {
             return (
               <div
                 key={index}
-                className={`rounded-lg border transition-all duration-300 ${
+                className={`rounded-sm border transition-all duration-300 ${
                   isCurrent
                     ? "border-accent/30 bg-accent/5"
                     : "border-border bg-secondary/10"
@@ -36,7 +37,7 @@ export function Experience() {
                         {exp.company}
                       </h3>
                       {isCurrent && (
-                        <span className="text-xs px-2 py-0.5 rounded-full border border-accent/40 text-accent bg-accent/10">
+                        <span className="text-xs font-mono px-2 py-0.5 rounded-sm border border-accent/40 text-accent bg-accent/10">
                           current
                         </span>
                       )}

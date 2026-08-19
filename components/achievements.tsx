@@ -20,6 +20,7 @@ export function Achievements() {
   return (
     <AnimatedSection id="achievements">
       <div ref={ref} className="max-w-4xl w-full mx-auto">
+        <p className="font-mono text-sm text-accent mb-3">&gt; achievements</p>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12">Achievements</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {achievements.map((achievement, index) => {
@@ -28,10 +29,10 @@ export function Achievements() {
               <div
                 key={index}
                 style={{ transitionDelay: `${index * 80}ms` }}
-                className={`group bg-secondary/20 hover:bg-secondary/40 border border-border rounded-lg p-6 transition-all duration-300 hover:border-accent/50 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+                className={`group bg-secondary/20 hover:bg-secondary/40 border border-border rounded-sm p-6 transition-all duration-300 hover:border-accent/50 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
               >
                 <div className="flex items-start gap-4 mb-3">
-                  <div className="shrink-0 p-2 bg-accent/10 rounded-lg">
+                  <div className="shrink-0 p-2 bg-accent/10 rounded-sm">
                     <Icon className="w-6 h-6 text-accent" />
                   </div>
                   <div className="flex-1">
