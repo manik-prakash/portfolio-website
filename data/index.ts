@@ -66,10 +66,10 @@ export const experiences: Experience[] = [
         role: "Summer Intern",
         period: "June 2026 - July 2026",
         description: [
-            "Reduced backend service image sizes and accelerated build times by optimizing Dockerfiles across multiple services, improving overall build efficiency.",
-            "Streamlined build and deployment workflows by refactoring and optimizing Jenkins CI pipelines, cutting down pipeline execution time.",
-            "Modernized the platform's runtime by leading the migration of microservices from .NET 8 to .NET 10 across Kubernetes-hosted services, ensuring compatibility and stability.",
-            "Improved frontend container performance by optimizing frontend Dockerfiles, reducing build times.",
+            "Modernized the platform's runtime by leading the migration of microservices from .NET 8 to .NET 10 across Kubernetes-hosted services, introducing Central Package Management (CPM) to standardize dependency versioning across the codebase.",
+            "Cut Docker image build times by optimizing Dockerfiles with BuildKit, leveraging registry-based caching for images and layers alongside independent layer caching via --link, resulting in faster and more reliable builds.",
+            "Reduced Jenkins pipeline runtime from 6-7 hours to under 2.5 hours by refactoring and optimizing the CI pipeline, replacing the slow wave-based execution pattern with a queue-based system where each Jenkins agent maintained its own dedicated cache and queue.",
+            "Kept the private Docker registry lean by writing a dedicated cleanup pipeline, automating removal of stale images and reclaiming storage.",
         ],
     },
     {
