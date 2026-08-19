@@ -85,7 +85,7 @@ export const experiences: Experience[] = [
     {
         company: "Somaiya Machine Learning Association SMLRA",
         role: "Tech Head",
-        period: "July 2025 - Present",
+        period: "July 2025 - July 2026",
         description: [
             "Delivered the council's official website by leading its full development and deployment, managing technical infrastructure and cloud hosting.",
             "Streamlined student registration by building React.js forms with Firebase Authentication, enabling secure and efficient data handling.",
