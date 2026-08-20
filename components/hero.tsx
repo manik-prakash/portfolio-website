@@ -64,7 +64,7 @@ export function Hero() {
               {displayed}
               <span className="animate-pulse">|</span>
             </span>
-            . Ex - Arcon.
+            . Ex-Intern @ Arcon.
           </p>
 
           <div className="flex gap-4 items-center flex-wrap">

@@ -8,11 +8,15 @@ import { Achievements } from "@/components/achievements"
 import { Footer } from "@/components/footer"
 import { GithubGraph } from "@/components/github-graph"
 import { ScrollProgress } from "@/components/scroll-progress"
+import { TerminalOverlay } from "@/components/terminal-overlay"
+import { ConsoleEasterEgg } from "@/components/console-easter-egg"
 
 export default function Portfolio() {
   return (
     <main className="min-h-screen">
       <ScrollProgress />
+      <TerminalOverlay />
+      <ConsoleEasterEgg />
       <Navbar />
       <Hero />
       <Education />

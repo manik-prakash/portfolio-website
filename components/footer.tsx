@@ -45,7 +45,9 @@ export function Footer() {
             </a>
           </div>
           <div className="pt-6 text-sm text-muted-foreground">
-            <p>Made by Manik</p>
+            <p>
+              Made by Manik <span className="font-mono text-xs">· press / for terminal</span>
+            </p>
           </div>
         </div>
       </div>
