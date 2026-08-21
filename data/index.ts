@@ -77,9 +77,11 @@ export const experiences: Experience[] = [
         role: "Full Stack Engineer Intern",
         period: "Feb 2026 - May 2026",
         description: [
-            "Shipped production features for a live SaaS product by building end-to-end functionality with React, Node.js, and TypeScript, spanning API design to frontend state management.",
-            "Delivered features independently in a fast-paced startup environment by owning end-to-end development and collaborating directly with engineering and product stakeholders.",
-            "Protected user data and API endpoints by applying secure coding practices informed by CyberSecurity Honours coursework.",
+            "Engineered a full-stack real estate sales platform for a client using Next.js, Node.js, Prisma, and PostgreSQL, implementing RBAC and Cloudinary-based image/video uploads for a polished, production-ready UI/UX.",
+            "Built an end-to-end pet grooming booking and scheduling platform for a pet store client by architecting appointment flows and business logic from scratch with Next.js, Node.js, and MongoDB.",
+            "Improved sales team efficiency by integrating AI agents into the internal CRM to automate intelligent task assignment and workflow routing.",
+            "Enabled geospatial search and map-driven UI interactions on a location-based platform by integrating Google Maps.",
+            "Ensured reliable multi-client deployments by managing domain provisioning, DNS configuration, and SSL certificate generation across the platform's client sites.",
         ],
     },
     {
