@@ -2,14 +2,13 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Github, Linkedin, Mail, Twitter } from "lucide-react"
-import { socialLinks } from "@/data"
+import { socialLinks, resumeUrl } from "@/data"
 import { PixelTrail, type PixelTrailHandle } from "@/components/ui/pixel-trail"
 import { useScreenSize } from "@/hooks/use-screen-size"
 
 const TYPED_WORDS = ["AI-powered products", "scalable APIs", "dev infrastructure", "full-stack apps"]
 
 export function Hero() {
-  const resumeLink = "https://drive.google.com/file/d/1kme59R4cig7EPyTtn6dYYLW1yi8V170V/view"
   const [wordIndex, setWordIndex] = useState(0)
   const [displayed, setDisplayed] = useState("")
   const [deleting, setDeleting] = useState(false)
@@ -88,7 +87,7 @@ export function Hero() {
               )
             })}
             <a
-              href={resumeLink}
+              href={resumeUrl}
               className="resume-btn-3d ml-2"
               aria-label="View Resume"
             >

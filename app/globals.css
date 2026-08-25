@@ -130,6 +130,24 @@ html {
   background: var(--muted-foreground);
 }
 
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.react-activity-calendar__scroll-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.react-activity-calendar__scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
 /* 3D Resume Button */
 .resume-btn-3d {
   position: relative;

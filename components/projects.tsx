@@ -3,12 +3,17 @@
 import { useEffect, useRef, useState } from "react"
 import { ArrowUpRight, ExternalLink, Github, X, ArrowRight } from "lucide-react"
 import { projects as allProjects } from "@/data"
+import { useBodyScrollLock } from "@/hooks/use-body-scroll-lock"
 
 export function Projects() {
   const [isVisible, setIsVisible] = useState(false)
   const [showAll, setShowAll] = useState(false)
   const [selectedProject, setSelectedProject] = useState<(typeof allProjects)[0] | null>(null)
   const ref = useRef<HTMLElement>(null)
+  const dialogRef = useRef<HTMLDivElement>(null)
+  const lastTriggerRef = useRef<HTMLDivElement | null>(null)
+
+  useBodyScrollLock(selectedProject !== null)
 
   const sortedProjects = [...allProjects].sort((a, b) => {
     const aLive = a.demo && a.demo !== "#" ? 1 : 0
@@ -40,14 +45,51 @@ export function Projects() {
 
   useEffect(() => {
     if (selectedProject) {
-      document.body.style.overflow = "hidden"
+      dialogRef.current?.focus()
     } else {
-      document.body.style.overflow = "unset"
-    }
-    return () => {
-      document.body.style.overflow = "unset"
+      lastTriggerRef.current?.focus()
     }
   }, [selectedProject])
+
+  useEffect(() => {
+    if (!selectedProject) return
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setSelectedProject(null)
+        return
+      }
+      if (e.key !== "Tab") return
+
+      const dialog = dialogRef.current
+      if (!dialog) return
+      const focusable = dialog.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      )
+      if (focusable.length === 0) return
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault()
+        last.focus()
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault()
+        first.focus()
+      } else if (!dialog.contains(document.activeElement)) {
+        e.preventDefault()
+        first.focus()
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [selectedProject])
+
+  const openProject = (project: (typeof allProjects)[0], trigger: HTMLDivElement | null) => {
+    lastTriggerRef.current = trigger
+    setSelectedProject(project)
+  }
 
   return (
     <>
@@ -61,11 +103,21 @@ export function Projects() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12">projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             {displayedProjects.map((project, index) => (
-              <button
+              <div
                 key={index}
-                onClick={() => setSelectedProject(project)}
+                role="button"
+                tabIndex={0}
+                aria-haspopup="dialog"
+                aria-label={`View details for ${project.title}`}
+                onClick={(e) => openProject(project, e.currentTarget)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault()
+                    openProject(project, e.currentTarget)
+                  }
+                }}
                 style={{ transitionDelay: `${index * 80}ms` }}
-                className={`group bg-secondary/20 hover:bg-secondary/40 border border-border rounded-sm p-6 transition-all duration-300 hover:border-accent/50 hover:scale-[1.02] hover:shadow-lg hover:shadow-accent/5 text-left w-full cursor-pointer flex flex-col ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+                className={`group bg-secondary/20 hover:bg-secondary/40 border border-border rounded-sm p-6 transition-all duration-300 hover:border-accent/50 hover:scale-[1.02] hover:shadow-lg hover:shadow-accent/5 text-left w-full cursor-pointer flex flex-col outline-none focus-visible:border-accent ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
               >
                 <div className="flex items-start justify-between mb-3">
                   <h3 className="text-lg sm:text-xl font-semibold text-foreground group-hover:text-accent transition-colors duration-200">
@@ -110,7 +162,7 @@ export function Projects() {
                   <span>view details</span>
                   <ArrowUpRight className="w-3 h-3 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </div>
-              </button>
+              </div>
             ))}
           </div>
 
@@ -143,12 +195,17 @@ export function Projects() {
           onClick={() => setSelectedProject(null)}
         >
           <div
-            className="bg-secondary/40 backdrop-blur-sm border border-border rounded-sm max-w-3xl w-full max-h-[90vh] overflow-y-auto"
+            ref={dialogRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="project-modal-title"
+            tabIndex={-1}
+            className="bg-secondary/40 backdrop-blur-sm border border-border rounded-sm max-w-3xl w-full max-h-[90vh] overflow-y-auto outline-none"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="sticky top-0 bg-secondary/80 backdrop-blur-md border-b border-border p-6 flex items-start justify-between">
               <div className="flex-1 pr-4">
-                <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">{selectedProject.title}</h3>
+                <h3 id="project-modal-title" className="text-2xl sm:text-3xl font-bold text-foreground mb-2">{selectedProject.title}</h3>
                 <div className="flex flex-wrap gap-2 mb-3">
                   {selectedProject.tech.map((tech, index) => (
                     <span key={index} className="text-xs font-mono px-3 py-1 bg-muted rounded-sm text-muted-foreground">

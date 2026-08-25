@@ -27,8 +27,7 @@ export function GithubGraph() {
         <p className="text-sm text-muted-foreground mb-10">
           github contribution graph — last 12 months
         </p>
-        {/* desktop */}
-        <div className="hidden sm:block overflow-x-auto">
+        <div>
           <GitHubCalendar
             username="manik-prakash"
             colorScheme={isDark ? "dark" : "light"}
@@ -37,17 +36,6 @@ export function GithubGraph() {
             fontSize={12}
             blockSize={13}
             blockMargin={4}
-          />
-        </div>
-        {/* mobile */}
-        <div className="sm:hidden overflow-x-auto">
-          <GitHubCalendar
-            username="manik-prakash"
-            colorScheme={isDark ? "dark" : "light"}
-            theme={isDark ? darkTheme : lightTheme}
-            blockSize={10}
-            blockMargin={3}
-            fontSize={10}
           />
         </div>
       </div>

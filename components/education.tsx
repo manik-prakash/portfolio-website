@@ -1,5 +1,4 @@
 import { AnimatedSection } from "./animated-section"
-// No "use client" — pure server component, zero client JS
 import { education } from "@/data"
 
 export function Education() {

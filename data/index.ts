@@ -38,11 +38,15 @@ export interface SocialLink {
     ariaLabel: string
 }
 
+export const resumeUrl = "https://drive.google.com/file/d/1kme59R4cig7EPyTtn6dYYLW1yi8V170V/view"
+
+export const email = "manikprakash74@gmail.com"
+
 export const socialLinks: SocialLink[] = [
     { name: "github", url: "https://github.com/manik-prakash", ariaLabel: "GitHub" },
     { name: "linkedin", url: "https://www.linkedin.com/in/manik-prakash/", ariaLabel: "LinkedIn" },
     { name: "twitter", url: "https://x.com/manikprakash74", ariaLabel: "Twitter" },
-    { name: "email", url: "mailto:manikprakash74@gmail.com", ariaLabel: "Email" },
+    { name: "email", url: `mailto:${email}`, ariaLabel: "Email" },
 ]
 
 export const education: Education[] = [

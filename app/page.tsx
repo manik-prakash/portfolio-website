@@ -13,7 +13,7 @@ import { ConsoleEasterEgg } from "@/components/console-easter-egg"
 
 export default function Portfolio() {
   return (
-    <main className="min-h-screen">
+    <main id="main-content" tabIndex={-1} className="min-h-screen">
       <ScrollProgress />
       <TerminalOverlay />
       <ConsoleEasterEgg />

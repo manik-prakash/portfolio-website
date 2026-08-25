@@ -1,7 +1,13 @@
 import { Github, Linkedin, Mail, Twitter } from "lucide-react"
 import { CopyEmail } from "./copy-email"
+import { socialLinks, email } from "@/data"
 
-const email = "manikprakash74@gmail.com"
+const iconMap: { [key: string]: React.ComponentType<{ className?: string }> } = {
+  github: Github,
+  linkedin: Linkedin,
+  twitter: Twitter,
+  email: Mail,
+}
 
 export function Footer() {
   return (
@@ -15,34 +21,20 @@ export function Footer() {
           </p>
 
           <div className="flex gap-6 items-center justify-center">
-            <a
-              href="https://github.com/manik-prakash"
-              className="text-muted-foreground hover:text-foreground transition-colors duration-200"
-              aria-label="GitHub"
-            >
-              <Github className="w-6 h-6" />
-            </a>
-            <a
-              href="https://linkedin.com/in/manik-prakash/"
-              className="text-muted-foreground hover:text-foreground transition-colors duration-200"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="w-6 h-6" />
-            </a>
-            <a
-              href="https://x.com/manikprakash74"
-              className="text-muted-foreground hover:text-foreground transition-colors duration-200"
-              aria-label="Twitter"
-            >
-              <Twitter className="w-6 h-6" />
-            </a>
-            <a
-              href="mailto:manikprakash74@gmail.com"
-              className="text-muted-foreground hover:text-foreground transition-colors duration-200"
-              aria-label="Email"
-            >
-              <Mail className="w-6 h-6" />
-            </a>
+            {socialLinks.map((link) => {
+              const Icon = iconMap[link.name]
+              if (!Icon) return null
+              return (
+                <a
+                  key={link.name}
+                  href={link.url}
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+                  aria-label={link.ariaLabel}
+                >
+                  <Icon className="w-6 h-6" />
+                </a>
+              )
+            })}
           </div>
           <div className="pt-6 text-sm text-muted-foreground">
             <p>

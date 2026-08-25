@@ -2,15 +2,37 @@
 
 import { useEffect, useRef, useState } from "react"
 import { useTheme } from "next-themes"
-import { socialLinks } from "@/data"
+import { socialLinks, resumeUrl } from "@/data"
 import { navItems } from "@/components/navbar"
-
-const RESUME_LINK = "https://drive.google.com/file/d/1kme59R4cig7EPyTtn6dYYLW1yi8V170V/view"
+import { useBodyScrollLock } from "@/hooks/use-body-scroll-lock"
 
 const ABOUT_TEXT =
   "Full-stack engineer from Mumbai, building AI-powered products, scalable APIs, and dev infrastructure. Ex - Arcon."
 
-type Line = { text: string; className?: string }
+type Line = { text?: string; className?: string; parts?: { text: string; className?: string }[] }
+
+const HELP_LINES: Line[] = [
+  { text: "welcome to manik-prakash's terminal", className: "text-accent" },
+  { text: "available commands:" },
+  ...[
+    ["help", "show this list"],
+    ["whoami", "who is this"],
+    ["ls", "list sections"],
+    ["cd <section>", "jump to a section"],
+    ["cat resume.txt", "view resume"],
+    ["cat about.txt", "read about me"],
+    ["open <target>", "github · linkedin · twitter"],
+    ["theme <dark|light>", "switch theme"],
+    ["sudo hire-me", "you know you want to"],
+    ["clear", "wipe the screen"],
+    ["exit", "close terminal"],
+  ].map(([cmd, desc]) => ({
+    parts: [
+      { text: `  ${cmd.padEnd(20)}`, className: "text-accent" },
+      { text: desc },
+    ],
+  })),
+]
 
 export function TerminalOverlay() {
   const [isOpen, setIsOpen] = useState(false)
@@ -21,6 +43,8 @@ export function TerminalOverlay() {
   const inputRef = useRef<HTMLInputElement>(null)
   const scrollRef = useRef<HTMLDivElement>(null)
   const { setTheme } = useTheme()
+
+  useBodyScrollLock(isOpen)
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -58,11 +82,7 @@ export function TerminalOverlay() {
 
     switch (cmd.toLowerCase()) {
       case "help":
-        print([
-          {
-            text: "help · whoami · ls · cd <section> · cat resume.txt · cat about.txt · open <github|linkedin|twitter> · status · theme <dark|light> · sudo hire-me · clear · exit",
-          },
-        ])
+        print(HELP_LINES)
         break
 
       case "whoami":
@@ -90,7 +110,7 @@ export function TerminalOverlay() {
       case "cat":
         if (arg === "resume.txt") {
           print([{ text: "opening resume.txt..." }])
-          window.open(RESUME_LINK, "_blank", "noopener,noreferrer")
+          window.open(resumeUrl, "_blank", "noopener,noreferrer")
         } else if (arg === "about.txt") {
           print([{ text: ABOUT_TEXT }])
         } else {
@@ -108,13 +128,6 @@ export function TerminalOverlay() {
         window.open(link.url, "_blank", "noopener,noreferrer")
         break
       }
-
-      case "status":
-        print([{ text: "opening /status..." }])
-        setTimeout(() => {
-          window.open("/status", "_blank", "noopener,noreferrer")
-        }, 200)
-        break
 
       case "theme":
         if (arg === "dark" || arg === "light") {
@@ -175,7 +188,13 @@ export function TerminalOverlay() {
         <div ref={scrollRef} className="max-h-80 overflow-y-auto px-4 py-3 space-y-1.5">
           {history.map((line, i) => (
             <p key={i} className={line.className ?? "text-muted-foreground"}>
-              {line.text}
+              {line.parts
+                ? line.parts.map((part, j) => (
+                    <span key={j} className={part.className ?? "text-muted-foreground"}>
+                      {part.text}
+                    </span>
+                  ))
+                : line.text}
             </p>
           ))}
         </div>
